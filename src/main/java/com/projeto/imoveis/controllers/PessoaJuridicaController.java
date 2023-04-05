@@ -45,7 +45,7 @@ public class PessoaJuridicaController {
     public ResponseEntity<ResponsePessoaJuridicaDto>adicionarPessoaJuridica(@Valid @RequestBody CreatePessoaJuridicaDto pessoaJ){
         ResponsePessoaJuridicaDto pessoaSalva = new ResponsePessoaJuridicaDto(pessoaJuridicaService.salvarPJ(pessoaJ));
 
-        return ResponseEntity.ok(pessoaSalva);
+        return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
     }
 
     @PutMapping("/{pessoajId}")
@@ -54,13 +54,13 @@ public class PessoaJuridicaController {
         ResponsePessoaJuridicaDto pessoaSalva = new ResponsePessoaJuridicaDto(pessoaJuridicaService.atualizar(pessoajId,
                 pessoaJ));
 
-        return ResponseEntity.ok(pessoaSalva);
+        return ResponseEntity.status(HttpStatus.OK).body(pessoaSalva);
     }
 
     @DeleteMapping("/{pessoajId}")
     public ResponseEntity<?> removerPessoaJuridica(@PathVariable Long pessoajId){
         pessoaJuridicaService.excluir(pessoajId);
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.status(HttpStatus.OK).body("Removido com sucesso!");
     }
 }

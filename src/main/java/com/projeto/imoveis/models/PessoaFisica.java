@@ -6,9 +6,11 @@ import com.projeto.imoveis.enums.Papeis;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import lombok.Getter;
 
 import java.time.LocalDate;
 
+@Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 public class PessoaFisica extends Pessoa{
@@ -35,22 +37,6 @@ public class PessoaFisica extends Pessoa{
 
     public PessoaFisica() {
 
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public Genero getGenero() {
-        return genero;
-    }
-
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public Papeis getPapel() {
-        return papel;
     }
 
     public PessoaFisica atualizaPessoaF(String nome, String email, String cpf, Genero genero, LocalDate dataNascimento, Papeis papel) {

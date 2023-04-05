@@ -11,10 +11,8 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idPessoa;
 
-    @Column(nullable = false, unique = true, length = 50)
     protected String nome;
 
-    @Column(nullable = false, unique = true, length = 50)
     protected String email;
 
 }

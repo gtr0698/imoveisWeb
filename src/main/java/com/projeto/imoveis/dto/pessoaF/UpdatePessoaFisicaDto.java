@@ -5,17 +5,16 @@ import com.projeto.imoveis.enums.Papeis;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
 
 import java.time.LocalDate;
 
-
+@Getter
 public class UpdatePessoaFisicaDto {
 
-    @NotBlank
     @Size(min = 3, max = 50)
     private String nome;
 
-    @NotBlank
     @Email
     @Size(min = 3, max = 50)
     private String email;
@@ -27,30 +26,6 @@ public class UpdatePessoaFisicaDto {
     private LocalDate dataNascimento;
 
     private Papeis papel;
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public Genero getGenero() {
-        return genero;
-    }
-
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public Papeis getPapel() {
-        return papel;
-    }
 
     public UpdatePessoaFisicaDto() {
         super();

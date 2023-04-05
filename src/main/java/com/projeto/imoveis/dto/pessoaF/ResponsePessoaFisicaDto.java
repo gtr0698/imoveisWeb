@@ -3,9 +3,11 @@ package com.projeto.imoveis.dto.pessoaF;
 import com.projeto.imoveis.enums.Genero;
 import com.projeto.imoveis.enums.Papeis;
 import com.projeto.imoveis.models.PessoaFisica;
+import lombok.Getter;
 
 import java.time.LocalDate;
 
+@Getter
 public class ResponsePessoaFisicaDto {
 
     private Long idPessoa;
@@ -25,33 +27,5 @@ public class ResponsePessoaFisicaDto {
         this.genero = pessoa.getGenero();
         this.dataNascimento = pessoa.getDataNascimento();
         this.papel = pessoa.getPapel();
-    }
-
-    public Long getIdPessoa() {
-        return idPessoa;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public Genero getGenero() {
-        return genero;
-    }
-
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public Papeis getPapel() {
-        return papel;
     }
 }

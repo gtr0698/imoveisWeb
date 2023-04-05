@@ -46,7 +46,7 @@ public class PessoaJuridicaService {
 
         if(pessoaJ.isEmpty()){
 
-            throw new RegraException("Pessoa não encontrado");
+            throw new RegraException("Pessoa não encontrada");
         }
 
         return pessoaJ.get();

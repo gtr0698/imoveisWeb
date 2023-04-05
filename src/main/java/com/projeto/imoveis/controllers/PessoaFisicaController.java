@@ -56,13 +56,13 @@ public class PessoaFisicaController {
         ResponsePessoaFisicaDto pessoaSalva = new ResponsePessoaFisicaDto(pessoaFisicaService.atualizar(pessoafId,
                 pessoaF));
 
-        return ResponseEntity.ok(pessoaSalva);
+        return ResponseEntity.status(HttpStatus.OK).body(pessoaSalva);
     }
 
     @DeleteMapping("/{pessoafId}")
     public ResponseEntity<?> removerPessoaFisica(@PathVariable Long pessoafId){
         pessoaFisicaService.excluir(pessoafId);
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.status(HttpStatus.OK).body("Removido com sucesso!");
     }
 }

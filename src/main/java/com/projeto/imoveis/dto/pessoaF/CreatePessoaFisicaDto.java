@@ -4,25 +4,23 @@ import com.projeto.imoveis.enums.Genero;
 import com.projeto.imoveis.enums.Papeis;
 import com.projeto.imoveis.models.PessoaFisica;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
 
 import java.time.LocalDate;
 
+@Getter
 public class CreatePessoaFisicaDto {
 
-    @NotBlank
     @Size(min = 3, max = 50)
     private String nome;
 
-    @NotBlank
     @Email
     @Size(min = 3, max = 50)
     private String email;
 
     private String cpf;
 
-    @NotBlank
     private Genero genero;
 
     private LocalDate dataNascimento;
@@ -36,30 +34,6 @@ public class CreatePessoaFisicaDto {
         this.genero = genero;
         this.dataNascimento = dataNascimento;
         this.papel = papel;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public Genero getGenero() {
-        return genero;
-    }
-
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public Papeis getPapel() {
-        return papel;
     }
 
     public PessoaFisica convertToModel(){
