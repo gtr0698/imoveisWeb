@@ -19,6 +19,7 @@ public class UpdatePessoaFisicaDto {
     @Size(min = 3, max = 50)
     private String email;
 
+    @NotBlank
     private String cpf;
 
     private Genero genero;
