@@ -6,7 +6,6 @@ import com.projeto.imoveis.enums.Papeis;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 
 import java.time.LocalDate;
@@ -17,36 +16,36 @@ import java.time.LocalDate;
 public class PessoaFisica extends Pessoa{
 
     private String cpf;
-
     @Enumerated(EnumType.STRING)
     private Genero genero;
-
     private LocalDate dataNascimento;
-
     @Enumerated(EnumType.STRING)
     private Papeis papel;
+    private String senha;
 
 
-    public PessoaFisica(String nome, String email, String cpf, Genero genero, LocalDate dataNascimento, Papeis papel) {
+    public PessoaFisica(String nome, String email, String cpf, Genero genero, LocalDate dataNascimento, Papeis papel, String senha) {
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
         this.genero = genero;
         this.dataNascimento = dataNascimento;
         this.papel = papel;
+        this.senha = senha;
     }
 
     public PessoaFisica() {
 
     }
 
-    public PessoaFisica atualizaPessoaF(String nome, String email, String cpf, Genero genero, LocalDate dataNascimento, Papeis papel) {
+    public PessoaFisica atualizaPessoaF(String nome, String email, String cpf, Genero genero, LocalDate dataNascimento, Papeis papel, String senha) {
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
         this.genero = genero;
         this.dataNascimento = dataNascimento;
         this.papel = papel;
+        this.senha = senha;
         return this;
     }
 }

@@ -14,19 +14,16 @@ public class UpdatePessoaFisicaDto {
 
     @Size(min = 3, max = 50)
     private String nome;
-
     @Email
     @Size(min = 3, max = 50)
     private String email;
-
     @NotBlank
     private String cpf;
-
     private Genero genero;
-
     private LocalDate dataNascimento;
-
     private Papeis papel;
+    @NotBlank
+    private String senha;
 
     public UpdatePessoaFisicaDto() {
         super();

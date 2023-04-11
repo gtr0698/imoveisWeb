@@ -16,7 +16,6 @@ public class ResponsePessoaFisicaDto {
     private String cpf;
     private Genero genero;
     private LocalDate dataNascimento;
-
     private Papeis papel;
 
     public ResponsePessoaFisicaDto(PessoaFisica pessoa) {

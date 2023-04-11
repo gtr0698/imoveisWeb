@@ -36,7 +36,7 @@ public class PessoaJuridicaService {
     public PessoaJuridica atualizar(Long pessoajId, UpdatePessoaJuridicaDto pessoaJ) {
         PessoaJuridica pessoa = verificaExistencia(pessoajId);
         PessoaJuridica pessoajAtualizada = pessoa.atualizaPessoaJ(pessoaJ.getNome(),
-                pessoaJ.getEmail(),pessoaJ.getRazaoSocial(),pessoaJ.getNomeFantasia(), pessoaJ.getCnpj(), pessoaJ.getPapel());
+                pessoaJ.getEmail(),pessoaJ.getRazaoSocial(),pessoaJ.getNomeFantasia(), pessoaJ.getCnpj(), pessoaJ.getPapel(), pessoaJ.getSenha());
 
         return pessoaJuridicaRepository.save(pessoajAtualizada);
     }

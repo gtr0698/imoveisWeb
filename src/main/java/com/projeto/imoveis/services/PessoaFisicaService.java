@@ -37,7 +37,7 @@ public class PessoaFisicaService {
     public PessoaFisica atualizar(Long pessoafId, UpdatePessoaFisicaDto pessoaF) {
         PessoaFisica pessoa = verificaExistencia(pessoafId);
         PessoaFisica pessoafAtualizada = pessoa.atualizaPessoaF(pessoaF.getNome(),
-                pessoaF.getEmail(),pessoaF.getCpf(),pessoaF.getGenero(), pessoaF.getDataNascimento(), pessoaF.getPapel());
+                pessoaF.getEmail(),pessoaF.getCpf(),pessoaF.getGenero(), pessoaF.getDataNascimento(), pessoaF.getPapel(), pessoaF.getSenha());
 
         return pessoaFisicaRepository.save(pessoafAtualizada);
     }

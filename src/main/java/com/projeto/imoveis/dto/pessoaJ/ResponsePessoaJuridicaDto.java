@@ -2,7 +2,6 @@ package com.projeto.imoveis.dto.pessoaJ;
 
 import com.projeto.imoveis.enums.Papeis;
 import com.projeto.imoveis.models.PessoaJuridica;
-import lombok.Data;
 import lombok.Getter;
 
 @Getter
