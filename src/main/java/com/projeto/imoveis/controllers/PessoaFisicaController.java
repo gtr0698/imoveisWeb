@@ -47,7 +47,7 @@ public class PessoaFisicaController {
     public ResponseEntity<ResponsePessoaFisicaDto>adicionarPessoaFisica(@Valid @RequestBody CreatePessoaFisicaDto pessoaF){
         ResponsePessoaFisicaDto pessoaSalva = new ResponsePessoaFisicaDto(pessoaFisicaService.salvarPF(pessoaF));
 
-        return ResponseEntity.ok(pessoaSalva);
+        return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
     }
 
     @PutMapping("/{pessoafId}")

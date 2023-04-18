@@ -9,13 +9,13 @@
 			"name": "PESSOA FISICA",
 			"item": [
 				{
-					"name": "ADICIONAR P_FISICA",
+					"name": "POST P_FISICA",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Teste3\",\r\n    \"email\": \"teste3@gmail.com\",\r\n    \"cpf\": \"213456789654\",\r\n    \"genero\": \"MASCULINO\",\r\n    \"dataNascimento\": \"1995-08-09\",\r\n    \"papel\": \"CLIENTE\",\r\n    \"senha\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Teste\",\r\n    \"email\": \"teste5@gmail.com\",\r\n    \"cpf\": \"123456789155\",\r\n    \"genero\": \"FEMININO\",\r\n    \"dataNascimento\": \"1995-05-16\",\r\n    \"papel\": \"CLIENTE\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -110,7 +110,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/cadastros/pessoa-fisica/3",
+							"raw": "localhost:8080/cadastros/pessoa-fisica/52",
 							"host": [
 								"localhost"
 							],
@@ -118,7 +118,7 @@
 							"path": [
 								"cadastros",
 								"pessoa-fisica",
-								"3"
+								"52"
 							]
 						}
 					},
@@ -136,7 +136,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Teste Corp\",\r\n    \"email\": \"testecorp@gmail.com\",\r\n    \"razaoSocial\": \"teste corp ltda\",\r\n    \"nomeFantasia\": \"Teste Corp\",\r\n    \"cnpj\": \"12345678912132\",\r\n    \"papel\": \"CLIENTE\",\r\n    \"senha\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Teste Corp\",\r\n    \"email\": \"testecorp@gmail.com\",\r\n    \"razaoSocial\": \"teste corp ltda\",\r\n    \"nomeFantasia\": \"Teste Corp\",\r\n    \"cnpj\": \"12345678912132\",\r\n    \"papel\": \"CLIENTE\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -240,127 +240,6 @@
 								"cadastros",
 								"pessoa-juridica",
 								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "FUNCIONARIO",
-			"item": [
-				{
-					"name": "LISTAR FUNCIONARIOS",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cadastros/funcionarios",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"funcionarios"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "BUSCAR FUNCIONARIO",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cadastros/funcionarios/1",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"funcionarios",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "ADICIONAR FUNCIONARIO",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Funcionario2Teste\",\r\n    \"email\": \"functeste2@gmail.com\",\r\n    \"papel\": \"FUNCIONARIO\",\r\n    \"cargo\": \"Corretor de Imoveis\",\r\n    \"usuario\": \"functeste2\",\r\n    \"senha\": \"123456\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/cadastros/funcionarios",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"funcionarios"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "ATUALIZAR FUNCIONARIO",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"FuncionarioTeste\",\r\n    \"email\": \"functeste22@gmail.com\",\r\n    \"papel\": \"FUNCIONARIO\",\r\n    \"cargo\": \"Corretor de Imoveis\",\r\n    \"usuario\": \"functeste\",\r\n    \"senha\": \"123456\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/cadastros/funcionarios/153",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"funcionarios",
-								"153"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETAR FUNCIONARIO",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cadastros/funcionarios/102",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"funcionarios",
-								"102"
 							]
 						}
 					},
