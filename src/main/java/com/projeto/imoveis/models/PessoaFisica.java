@@ -21,8 +21,6 @@ public class PessoaFisica extends Pessoa{
     private LocalDate dataNascimento;
     @Enumerated(EnumType.STRING)
     private Papeis papel;
-    private String senha;
-
 
     public PessoaFisica(String nome, String email, String cpf, Genero genero, LocalDate dataNascimento, Papeis papel, String senha) {
         this.nome = nome;

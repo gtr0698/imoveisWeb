@@ -17,7 +17,6 @@ public class UpdatePessoaJuridicaDto {
     private String email;
 
     private String razaoSocial;
-    private String nomeFantasia;
     @NotBlank
     private String cnpj;
     private Papeis papel;

@@ -36,7 +36,7 @@ public class FuncionarioService {
     public CadFuncionario atualizar(Long funcionarioId, UpdateFuncionarioDto funcionario) {
         CadFuncionario func = verificaExistencia(funcionarioId);
         CadFuncionario funcionarioAtualizado = func.atualizaCadFuncionario(funcionario.getNome(),
-                funcionario.getEmail(), funcionario.getPapel(), funcionario.getCargo(), funcionario.getUsuario(), funcionario.getSenha());
+                funcionario.getEmail(), funcionario.getPapel(), funcionario.getCargo(), funcionario.getSenha());
 
         return funcionarioRepository.save(funcionarioAtualizado);
     }

@@ -13,18 +13,14 @@ import lombok.Getter;
 public class PessoaJuridica extends Pessoa{
 
     private String razaoSocial;
-    private String nomeFantasia;
     private String cnpj;
     @Enumerated(EnumType.STRING)
     private Papeis papel;
 
-    private String senha;
-
-    public PessoaJuridica(String nome, String email, String razaoSocial, String nomeFantasia, String cnpj, Papeis papel, String senha) {
+    public PessoaJuridica(String nome, String email, String razaoSocial, String cnpj, Papeis papel, String senha) {
         this.nome = nome;
         this.email = email;
         this.razaoSocial = razaoSocial;
-        this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
         this.papel = papel;
         this.senha = senha;
@@ -34,11 +30,10 @@ public class PessoaJuridica extends Pessoa{
 
     }
 
-    public PessoaJuridica atualizaPessoaJ(String nome, String email, String razaoSocial, String nomeFantasia, String cnpj, Papeis papel, String senha) {
+    public PessoaJuridica atualizaPessoaJ(String nome, String email, String razaoSocial, String cnpj, Papeis papel, String senha) {
         this.nome = nome;
         this.email = email;
         this.razaoSocial = razaoSocial;
-        this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
         this.papel = papel;
         this.senha = senha;

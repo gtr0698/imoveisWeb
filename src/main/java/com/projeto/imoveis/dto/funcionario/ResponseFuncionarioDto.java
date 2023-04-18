@@ -12,7 +12,6 @@ public class ResponseFuncionarioDto {
     private String email;
     private Papeis papel;
     private String cargo;
-    private String usuario;
 
     public ResponseFuncionarioDto(CadFuncionario funcionario) {
         this.idPessoa = funcionario.getIdPessoa();
@@ -20,6 +19,5 @@ public class ResponseFuncionarioDto {
         this.email = funcionario.getEmail();
         this.papel = funcionario.getPapel();
         this.cargo = funcionario.getCargo();
-        this.usuario = funcionario.getUsuario();
     }
 }

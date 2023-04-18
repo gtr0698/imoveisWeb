@@ -30,7 +30,9 @@ public class PessoaFisicaController {
     public ResponseEntity<Page<PessoaFisica>> listaPessoasFisicas(@PageableDefault(page = 0, size = 10, sort = "idPessoa", direction = Sort.Direction.ASC)
                                                                     Pageable pageable){
         Page<PessoaFisica> pessoaFisica = pessoaFisicaService.listarTodos(pageable);
-
+        if(pessoaFisica.isEmpty()){
+            return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.status(HttpStatus.OK).body(pessoaFisica);
     }
 

@@ -28,7 +28,9 @@ public class FuncionarioController {
     public ResponseEntity<Page<CadFuncionario>> listaFuncionarios(@PageableDefault(page = 0, size = 10, sort = "idPessoa", direction = Sort.Direction.ASC)
                                                                   Pageable pageable){
         Page<CadFuncionario> funcionarios = funcionarioService.listarTodos(pageable);
-
+        if(funcionarios.isEmpty()){
+            return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.status(HttpStatus.OK).body(funcionarios);
     }
 

@@ -16,25 +16,23 @@ public class CreatePessoaJuridicaDto {
     @Size(min = 3, max = 50)
     private String email;
     private String razaoSocial;
-    private String nomeFantasia;
     @NotBlank
     private String cnpj;
     private Papeis papel;
     @NotBlank
     private String senha;
 
-    public CreatePessoaJuridicaDto(String nome, String email, String razaoSocial, String nomeFantasia, String cnpj, Papeis papel, String senha) {
+    public CreatePessoaJuridicaDto(String nome, String email, String razaoSocial, String cnpj, Papeis papel, String senha) {
         this.nome = nome;
         this.email = email;
         this.razaoSocial = razaoSocial;
-        this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
         this.papel = papel;
         this.senha = senha;
     }
 
     public PessoaJuridica convertToModel(){
-        return new PessoaJuridica(nome, email, razaoSocial, nomeFantasia, cnpj, papel, senha);
+        return new PessoaJuridica(nome, email, razaoSocial, cnpj, papel, senha);
     }
 
 }

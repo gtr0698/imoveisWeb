@@ -19,20 +19,17 @@ public class CreateFuncionarioDto {
     @NotBlank
     private String cargo;
     @NotBlank
-    private String usuario;
-    @NotBlank
     private String senha;
 
-    public CreateFuncionarioDto(String nome, String email, Papeis papel, String cargo, String usuario, String senha) {
+    public CreateFuncionarioDto(String nome, String email, Papeis papel, String cargo, String senha) {
         this.nome = nome;
         this.email = email;
         this.papel = papel;
         this.cargo = cargo;
-        this.usuario = usuario;
         this.senha = senha;
     }
 
     public CadFuncionario convertToModel(){
-        return new CadFuncionario(nome, email, papel, cargo, usuario, senha);
+        return new CadFuncionario(nome, email, papel, cargo, senha);
     }
 }

@@ -18,8 +18,6 @@ public class UpdateFuncionarioDto {
     @NotBlank
     private String cargo;
     @NotBlank
-    private String usuario;
-    @NotBlank
     private String senha;
 
     public UpdateFuncionarioDto() {
