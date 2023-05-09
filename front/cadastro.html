@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ImoveisWEB</title>
+  <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="style/default.css">
+</head>
+
+<body>
+
+  <header id="navbar"></header>
+  <!--
+    Pessoa:
+      nome;
+      email;
+
+    Pessoa Fisica:
+      cpf;
+      genero;
+      dataNascimento;
+      papel;
+    
+    Pessoa Juridica:
+      razaoSocial;
+      nomeFantasia;
+      cnpj;
+      papel;
+  -->
+  <button class="ui inverted primary button" onclick="abrir_cadastro()">Cadastrar Usuário</button>
+  <!-- Abrir Cadastro -->
+  <div class="ui inverted tiny modal" id="mdl_abrir_cadastro">
+    <i class="close icon"></i>
+    <div class="header">
+      Cadastro de Usuário
+    </div>
+    <div class="content">
+      <h3>Selecione o tipo de usuário</h3>
+    </div>
+    <div class="actions">
+      <div class="ui negative button">Cancelar</div>
+      <div class="ui primary button" id="btn_fisica" onclick="gerar_cadastro_fisica()">Pessoa Física</div>
+      <div class="ui primary button" id="btn_juridica" onclick="gerar_cadastro_juridica()">Pessoa Jurídica</div>
+    </div>
+  </div>
+
+  <!-- Pessoa Física -->
+  <div class="ui inverted modal" id="mdl_cadastro_fisica">
+    <i class="close icon"></i>
+    <div class="ui dividing header">
+      Pessoa Física
+    </div>
+    <div class="content">
+      <form class="ui form" id="form_pessoa_fisica"></form>
+    </div>
+    <div class="actions">
+      <div class="ui negative button">Cancelar</div>
+      <div class="ui primary button" onclick="cadastro_fisica()">Cadastrar</div>
+    </div>
+  </div>
+
+  <!-- Pessoa Jurídica -->
+  <div class="ui inverted modal" id="mdl_cadastro_juridica">
+    <i class="close icon"></i>
+    <div class="ui dividing header">
+      Pessoa Jurídica
+    </div>
+    <div class="content">
+      <form class="ui form" id="form_pessoa_juridica"></form>
+    </div>
+    <div class="actions">
+      <div class="ui negative button">Cancelar</div>
+      <div class="ui primary button" onclick="cadastro_juridica()">Cadastrar</div>
+    </div>
+  </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="semantic/semantic.min.js"></script>
+<script src="js/cadastro.js"></script>
+
+</html>
