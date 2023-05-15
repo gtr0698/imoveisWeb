@@ -30,7 +30,6 @@ public class PessoaFisicaService {
     public PessoaFisica salvarPF(CreatePessoaFisicaDto pessoaF) {
 
         PessoaFisica novaPessoaF = pessoaF.convertToModel();
-
         return pessoaFisicaRepository.save(novaPessoaF);
     }
 

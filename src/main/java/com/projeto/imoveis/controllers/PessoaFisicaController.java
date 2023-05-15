@@ -19,6 +19,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/cadastros/pessoa-fisica")
+@CrossOrigin(origins = "*")
 public class PessoaFisicaController {
 
 
