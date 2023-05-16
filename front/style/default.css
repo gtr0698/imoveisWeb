@@ -1,0 +1,30 @@
+body {
+    background-color: grey;
+}
+
+.ui.inverted.modal {
+    background: rgba(0, 0, 0, .9)
+}
+
+.ui.inverted.modal>.content {
+    background: rgba(43, 43, 43, 0.9);
+    color: #fff
+}
+
+.ui.inverted.modal>.header,
+.ui.inverted.modal>.actions {
+    background: #191a1b;
+    border-top: 1px solid rgba(34, 36, 38, .85);
+    color: #fff
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+.mover_direita{
+    margin-left: 15px;
+}
+
+#
