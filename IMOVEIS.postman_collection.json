@@ -6,16 +6,16 @@
 	},
 	"item": [
 		{
-			"name": "PESSOA FISICA",
+			"name": "PESSOAS",
 			"item": [
 				{
-					"name": "ADICIONAR P_FISICA",
+					"name": "ADICIONAR PESSOA",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Teste1\",\r\n    \"email\": \"teste1@gmail.com\",\r\n    \"cpf\": \"213456789636\",\r\n    \"genero\": \"MASCULINO\",\r\n    \"dataNascimento\": \"1995-08-09\",\r\n    \"papel\": \"CLIENTE\",\r\n    \"senha\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Teste\",\r\n    \"email\": \"teste@gmail.com\",\r\n    \"telefone\": \"45999999988\",\r\n    \"numeroDocumento\": \"213456789655\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"papel\": \"CLIENTE\",\r\n    \"senha\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -23,308 +23,66 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/cadastros/pessoa-fisica",
+							"raw": "localhost:8080/cadastros/pessoas",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"cadastros",
-								"pessoa-fisica"
+								"pessoas"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "LISTAR P_FISICA",
+					"name": "LISTAR PESSOAS",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/cadastros/pessoa-fisica",
+							"raw": "localhost:8080/cadastros/pessoas",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"cadastros",
-								"pessoa-fisica"
+								"pessoas"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "BUSCAR P_FISICA",
+					"name": "BUSCAR PESSOA",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/cadastros/pessoa-fisica/202",
+							"raw": "localhost:8080/cadastros/pessoas/1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"cadastros",
-								"pessoa-fisica",
-								"202"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "ATUALIZAR P_FISICA",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Teste3\",\r\n    \"email\": \"teste3@gmail.com\",\r\n    \"cpf\": \"213456789654\",\r\n    \"genero\": \"MASCULINO\",\r\n    \"dataNascimento\": \"1998-01-01\",\r\n    \"papel\": \"CLIENTE\",\r\n    \"senha\": \"654321\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/cadastros/pessoa-fisica/202",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"pessoa-fisica",
-								"202"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETAR P_FISICA",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cadastros/pessoa-fisica/203",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"pessoa-fisica",
-								"203"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "PESSOA JURIDICA",
-			"item": [
-				{
-					"name": "ADICIONAR P_JURIDICA",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Teste Corp 5\",\r\n    \"email\": \"testecorp5@gmail.com\",\r\n    \"razaoSocial\": \"teste corp ltda\",\r\n    \"cnpj\": \"12345678912150\",\r\n    \"papel\": \"CLIENTE\",\r\n    \"senha\": \"1234567\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/cadastros/pessoa-juridica",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"pessoa-juridica"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "LISTAR P_JURIDICA",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cadastros/pessoa-juridica",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"pessoa-juridica"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "BUSCAR P_JURIDICA",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cadastros/pessoa-juridica/2",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"pessoa-juridica",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "ATUALIZAR P_JURIDICA",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Teste Corp 5\",\r\n    \"email\": \"testecorp5@gmail.com\",\r\n    \"razaoSocial\": \"teste corp ltda\",\r\n    \"cnpj\": \"12345678912155\",\r\n    \"papel\": \"CLIENTE\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/cadastros/pessoa-juridica/2",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"pessoa-juridica",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETAR P_JURIDICA",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cadastros/pessoa-juridica/1",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"pessoa-juridica",
+								"pessoas",
 								"1"
 							]
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "FUNCIONARIO",
-			"item": [
-				{
-					"name": "LISTAR FUNCIONARIOS",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cadastros/funcionarios",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"funcionarios"
-							]
-						}
-					},
-					"response": []
 				},
 				{
-					"name": "BUSCAR FUNCIONARIO",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cadastros/funcionarios/152",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"funcionarios",
-								"152"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "ADICIONAR FUNCIONARIO",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Funcionario3Teste\",\r\n    \"email\": \"functeste3@gmail.com\",\r\n    \"papel\": \"FUNCIONARIO\",\r\n    \"cargo\": \"Corretor de Imoveis\",\r\n    \"senha\": \"123456\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/cadastros/funcionarios",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-								"funcionarios"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "ATUALIZAR FUNCIONARIO",
+					"name": "ATUALIZAR PESSOA",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Funcionario2Teste\",\r\n    \"email\": \"functeste22@gmail.com\",\r\n    \"papel\": \"FUNCIONARIO\",\r\n    \"cargo\": \"Corretor de Imoveis\",\r\n    \"senha\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Teste1\",\r\n    \"email\": \"teste1@gmail.com\",\r\n    \"telefone\": \"45999993333\",\r\n    \"numeroDocumento\": \"213456789636\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"papel\": \"CLIENTE\",\r\n    \"senha\": \"654321\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -332,35 +90,156 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/cadastros/funcionarios/153",
+							"raw": "localhost:8080/cadastros/pessoas/1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"cadastros",
-								"funcionarios",
-								"153"
+								"pessoas",
+								"1"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "DELETAR FUNCIONARIO",
+					"name": "DELETAR PESSOA",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/cadastros/funcionarios/202",
+							"raw": "localhost:8080/cadastros/pessoas/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"cadastros",
-								"funcionarios",
-								"202"
+								"pessoas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "IMOVEIS",
+			"item": [
+				{
+					"name": "LISTAR IMOVEIS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cadastros/imoveis",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"imoveis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADICIONAR IMOVEL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"matriculaImovel\": \"325964\",\r\n    \"proprietario\": {\r\n        \"id\": 2\r\n    },\r\n    \"tipoImovel\": \"URBANO\",\r\n    \"largura\": 20.5,\r\n    \"comprimento\": 15.2,\r\n    \"preco\": 300000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cadastros/imoveis",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"imoveis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR IMOVEIS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cadastros/imoveis/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"imoveis",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ATUALIZAR IMOVEL",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"matriculaImovel\": \"325964\",\r\n    \"proprietario\": {\r\n        \"id\": 2\r\n    },\r\n    \"tipoImovel\": \"URBANO\",\r\n    \"largura\": 20.5,\r\n    \"comprimento\": 15.2,\r\n    \"preco\": 300000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cadastros/imoveis/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"imoveis",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETAR IMOVEL",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cadastros/imoveis/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"imoveis",
+								"1"
 							]
 						}
 					},
