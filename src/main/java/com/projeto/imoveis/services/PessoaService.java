@@ -8,8 +8,6 @@ import com.projeto.imoveis.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -19,10 +17,6 @@ public class PessoaService {
 
     @Autowired
     PessoaRepository pessoaRepository;
-
-    private BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
 
 
     public Page<Pessoa> listarTodos(Pageable pageable) {
