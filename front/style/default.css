@@ -1,6 +1,9 @@
 body {
     background-color: grey;
+<<<<<<< HEAD
     margin-top: 4rem;
+=======
+>>>>>>> f79c23199fdd950a5101b76cc40cb1a3e68371b3
 }
 
 .ui.inverted.modal {
@@ -26,4 +29,10 @@ input::-webkit-inner-spin-button {
 
 .mover_direita{
     margin-left: 15px;
+<<<<<<< HEAD
 }
+=======
+}
+
+#
+>>>>>>> f79c23199fdd950a5101b76cc40cb1a3e68371b3

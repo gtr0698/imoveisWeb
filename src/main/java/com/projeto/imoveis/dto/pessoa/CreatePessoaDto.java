@@ -1,15 +1,16 @@
-package com.projeto.imoveis.dto.funcionario;
+package com.projeto.imoveis.dto.pessoa;
 
 import com.projeto.imoveis.enums.Papeis;
 import com.projeto.imoveis.enums.TipoPessoa;
-import com.projeto.imoveis.models.CadFuncionario;
+import com.projeto.imoveis.models.Pessoa;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
-public class CreateFuncionarioDto {
+public class CreatePessoaDto {
 
     @NotBlank
     @Size(min = 3, max = 50)
@@ -35,11 +36,8 @@ public class CreateFuncionarioDto {
     @Size(min = 6, max = 15)
     private String senha;
 
-    @NotBlank
-    private String cargo;
-
-    public CreateFuncionarioDto(String nome, String email, String telefone, String numeroDocumento,
-                                TipoPessoa tipoPessoa, Papeis papel, String senha, String cargo) {
+    public CreatePessoaDto(String nome, String email, String telefone, String numeroDocumento,
+                           TipoPessoa tipoPessoa, Papeis papel, String senha) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -47,10 +45,9 @@ public class CreateFuncionarioDto {
         this.tipoPessoa = tipoPessoa;
         this.papel = papel;
         this.senha = senha;
-        this.cargo = cargo;
     }
 
-    public CadFuncionario convertToModel(){
-        return new CadFuncionario(nome, email, telefone, numeroDocumento, tipoPessoa, papel, senha, cargo);
+    public Pessoa convertToModel(){
+        return new Pessoa(nome, email, telefone, numeroDocumento, tipoPessoa, papel, senha);
     }
 }

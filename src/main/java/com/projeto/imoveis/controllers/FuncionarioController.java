@@ -35,7 +35,7 @@ public class FuncionarioController {
     }
 
     @GetMapping("/{funcionarioId}")
-    public ResponseEntity<Object>buscarPessoaFisica(@PathVariable(value = "funcionarioId") Long funcionarioId){
+    public ResponseEntity<Object>buscarFuncionario(@PathVariable(value = "funcionarioId") Long funcionarioId){
         Optional<CadFuncionario> buscarFuncionario = funcionarioService.localizar(funcionarioId);
         if(!buscarFuncionario.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("registro não localizado!");
