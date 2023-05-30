@@ -70,13 +70,8 @@ function gerar_cadastro_fisica(){
     div_content += '<option value="OUTRO">Outro</option>';
     div_content += '</select></div>';
     div_content += '<div class="three wild field">';
-<<<<<<< HEAD
-    div_content += '<label for="data_nasc">Data de Nascimento</label>';
-    div_content += '<input type="date" id="data_nasc" name="data_nasc">';
-=======
     div_content += '<label for="dataNascimento">Data de Nascimento</label>';
     div_content += '<input type="date" id="dataNascimento" name="dataNascimento">';
->>>>>>> f79c23199fdd950a5101b76cc40cb1a3e68371b3
     div_content += '</div></div></div>';
     div.setAttribute('class', 'ui inverted segment');
     div.innerHTML = div_content;
@@ -120,27 +115,18 @@ function gerar_cadastro_juridica(){
 
 function cadastro_fisica() {
     const formulario = document.getElementById("form_pessoa_fisica");
-<<<<<<< HEAD
-    const url = 'https://localhost:8080/cadastros/pessoa-fisica';
-=======
     const url = 'http://localhost:8080/cadastros/pessoa-fisica';
->>>>>>> f79c23199fdd950a5101b76cc40cb1a3e68371b3
     const dados_form = new FormData(formulario);
     var obj_form = {};
     const xhr = new XMLHttpRequest();
     const nome = document.getElementById('nome');
     xhr.open('POST', url, true);
-<<<<<<< HEAD
-    
-=======
     xhr.setRequestHeader("Content-Type", "application/json");
 
->>>>>>> f79c23199fdd950a5101b76cc40cb1a3e68371b3
     for (const [k, v] of dados_form.entries()) {
         obj_form[k] = v;
     }
     obj_form['papel'] = "CLIENTE";
-<<<<<<< HEAD
     console.log(obj_form);
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -176,24 +162,3 @@ function cadastro_juridica() {
     obj_form = JSON.stringify(obj_form);
     xhr.send(obj_form);
 }
-=======
-   
-    xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 201) {
-            console.log("ok");
-        }
-		if (this.readyState == 4 && this.status == 415) {
-            console.log("XHR" + xhr.response);
-        }
-		//if (this.status == 400) {
-          //  console.log("XHR" + xhr.response);
-        //}
-	}
-
-    obj_form = JSON.stringify(obj_form);
-    //console.log(typeof(xhr))
-	
-	xhr.send(obj_form);
-	
-}
->>>>>>> f79c23199fdd950a5101b76cc40cb1a3e68371b3
