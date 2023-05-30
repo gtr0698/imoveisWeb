@@ -1,9 +1,18 @@
+function get_url(){
+    var url = window.location.href;
+    var parts = url.split('/');
+    var directoryPath = "";
+
+    for (var i = 0; i < parts.length; i++) {
+        if (parts[i] === "imoveis") {
+            directoryPath = parts.slice(0, i+1).join('/');
+        }
+    }
+    return directoryPath;
+
+}
 $(document).ready(function(){
-     fetch('../front/navbar.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('navbar').innerHTML = data;
-      });
+    
 });
 
 function abrir_cadastro() {
@@ -106,17 +115,42 @@ function gerar_cadastro_juridica(){
 
 function cadastro_fisica() {
     const formulario = document.getElementById("form_pessoa_fisica");
-    const url = window.location.href + '/cadastros/pessoa-fisica';
+    const url = 'https://localhost:8080/cadastros/pessoa-fisica';
     const dados_form = new FormData(formulario);
     var obj_form = {};
     const xhr = new XMLHttpRequest();
     const nome = document.getElementById('nome');
-    console.log(nome.value)
     xhr.open('POST', url, true);
     
     for (const [k, v] of dados_form.entries()) {
         obj_form[k] = v;
     }
+    obj_form['papel'] = "CLIENTE";
+    console.log(obj_form);
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log("ok");
+        }
+    }
+
+    obj_form = JSON.stringify(obj_form);
+    xhr.send(obj_form);
+}
+
+
+function cadastro_juridica() {
+    const formulario = document.getElementById("form_pessoa_juridica");
+    const url = 'https://localhost:8080/cadastros/pessoa-juridica';
+    const dados_form = new FormData(formulario);
+    var obj_form = {};
+    const xhr = new XMLHttpRequest();
+    const nome = document.getElementById('nome');
+    xhr.open('POST', url, true);
+    
+    for (const [k, v] of dados_form.entries()) {
+        obj_form[k] = v;
+    }
+    obj_form['papel'] = "CLIENTE";
     console.log(obj_form);
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

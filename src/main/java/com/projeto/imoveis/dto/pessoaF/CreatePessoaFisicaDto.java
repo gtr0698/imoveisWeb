@@ -1,4 +1,4 @@
-package com.projeto.imoveis.dto.pessoa;
+package com.projeto.imoveis.dto.pessoaF;
 
 import com.projeto.imoveis.enums.Genero;
 import com.projeto.imoveis.enums.Papeis;

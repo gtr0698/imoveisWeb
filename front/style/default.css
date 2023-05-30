@@ -1,5 +1,6 @@
 body {
     background-color: grey;
+    margin-top: 4rem;
 }
 
 .ui.inverted.modal {
@@ -26,5 +27,3 @@ input::-webkit-inner-spin-button {
 .mover_direita{
     margin-left: 15px;
 }
-
-#

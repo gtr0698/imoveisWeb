@@ -11,8 +11,7 @@
 </head>
 
 <body>
-
-  <header id="navbar"></header>
+  
   <!--
     Pessoa:
       nome;
@@ -30,6 +29,8 @@
       cnpj;
       papel;
   -->
+  <div id="navbar-placeholder"></div>
+  <!-- <div class="row"><object data="navbar.html" type="text/html"></object></div> -->
   <button class="ui inverted primary button" onclick="abrir_cadastro()">Cadastrar Usuário</button>
   <!-- Abrir Cadastro -->
   <div class="ui inverted tiny modal" id="mdl_abrir_cadastro">
@@ -82,5 +83,19 @@
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="semantic/semantic.min.js"></script>
 <script src="js/cadastro.js"></script>
+<script>
+        // Seu código JavaScript para carregar a navbar
+        document.addEventListener("DOMContentLoaded", function() {
+            var navbarPlaceholder = document.getElementById("navbar-placeholder");
 
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "navbar.html", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    navbarPlaceholder.innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        });
+</script>
 </html>
