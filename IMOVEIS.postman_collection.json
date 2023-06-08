@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "92ebd4b9-e3a9-4b2e-9424-06c64a7373dc",
+		"name": "IMOVEIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PESSOA FISICA",
+			"item": [
+				{
+					"name": "ADICIONAR P_FISICA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Teste1\",\r\n    \"email\": \"teste1@gmail.com\",\r\n    \"cpf\": \"213456789636\",\r\n    \"genero\": \"MASCULINO\",\r\n    \"dataNascimento\": \"1995-08-09\",\r\n    \"papel\": \"CLIENTE\",\r\n    \"senha\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cadastros/pessoa-fisica",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"pessoa-fisica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LISTAR P_FISICA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cadastros/pessoa-fisica",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"pessoa-fisica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR P_FISICA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cadastros/pessoa-fisica/202",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"pessoa-fisica",
+								"202"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ATUALIZAR P_FISICA",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Teste3\",\r\n    \"email\": \"teste3@gmail.com\",\r\n    \"cpf\": \"213456789654\",\r\n    \"genero\": \"MASCULINO\",\r\n    \"dataNascimento\": \"1998-01-01\",\r\n    \"papel\": \"CLIENTE\",\r\n    \"senha\": \"654321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cadastros/pessoa-fisica/202",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"pessoa-fisica",
+								"202"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETAR P_FISICA",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cadastros/pessoa-fisica/203",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"pessoa-fisica",
+								"203"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PESSOA JURIDICA",
+			"item": [
+				{
+					"name": "ADICIONAR P_JURIDICA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Teste Corp 5\",\r\n    \"email\": \"testecorp5@gmail.com\",\r\n    \"razaoSocial\": \"teste corp ltda\",\r\n    \"cnpj\": \"12345678912150\",\r\n    \"papel\": \"CLIENTE\",\r\n    \"senha\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cadastros/pessoa-juridica",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"pessoa-juridica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LISTAR P_JURIDICA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cadastros/pessoa-juridica",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"pessoa-juridica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR P_JURIDICA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cadastros/pessoa-juridica/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"pessoa-juridica",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ATUALIZAR P_JURIDICA",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Teste Corp 5\",\r\n    \"email\": \"testecorp5@gmail.com\",\r\n    \"razaoSocial\": \"teste corp ltda\",\r\n    \"cnpj\": \"12345678912155\",\r\n    \"papel\": \"CLIENTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cadastros/pessoa-juridica/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"pessoa-juridica",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETAR P_JURIDICA",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cadastros/pessoa-juridica/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"pessoa-juridica",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FUNCIONARIO",
+			"item": [
+				{
+					"name": "LISTAR FUNCIONARIOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cadastros/funcionarios",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"funcionarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR FUNCIONARIO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cadastros/funcionarios/152",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"funcionarios",
+								"152"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADICIONAR FUNCIONARIO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Funcionario3Teste\",\r\n    \"email\": \"functeste3@gmail.com\",\r\n    \"papel\": \"FUNCIONARIO\",\r\n    \"cargo\": \"Corretor de Imoveis\",\r\n    \"senha\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cadastros/funcionarios",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"funcionarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ATUALIZAR FUNCIONARIO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Funcionario2Teste\",\r\n    \"email\": \"functeste22@gmail.com\",\r\n    \"papel\": \"FUNCIONARIO\",\r\n    \"cargo\": \"Corretor de Imoveis\",\r\n    \"senha\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cadastros/funcionarios/153",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"funcionarios",
+								"153"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETAR FUNCIONARIO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cadastros/funcionarios/202",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cadastros",
+								"funcionarios",
+								"202"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

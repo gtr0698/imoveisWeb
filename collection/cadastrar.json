@@ -1,0 +1,9 @@
+{
+    "nome": "Lamberty",
+    "email": "lamberty@gmail.com",
+    "telefone": "45999998888",
+    "numeroDocumento": "12345678900",
+    "tipoPessoa": "PESSOA_FISICA",
+    "papel": "CLIENTE",
+    "senha": "teste"
+}

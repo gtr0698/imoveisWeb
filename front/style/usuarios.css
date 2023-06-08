@@ -1,0 +1,16 @@
+.tab_usuarios{
+    text-align: center;
+}
+
+.medium_table_custom {
+    width: 1283px;
+    margin-left:auto!important;
+    margin-right:auto!important;
+}
+
+.grey_body_wrapper {
+    padding: 1em 1em;
+    box-shadow: none;
+    background-color:#000000c4;
+    position:relative;
+   }
