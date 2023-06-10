@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="style/default.css">
+	<link rel="stylesheet" type="text/css" href="style/usuarios.css">
+	<title>Usuários</title>
+</head>
+
+<body>
+	<div id="content">
+		<div class="ui medium_table_custom grey_body_wrapper">
+			<div class="ui panel black_panel">
+				<div class="ui search">
+					<div class="ui right icon input">
+						<input class="prompt" id='pesquisar_usuario' type="text" placeholder="Pesquisar Usuário">
+						<i class="search icon"></i>
+					</div>
+				</div>
+
+				<table class="ui selectable inverted table" id="tabela_usuarios">
+					<thead class="tab_usuarios">
+						<tr>
+							<th>Nome</th>
+							<th>Email</th>
+							<th>Telefone</th>
+							<th>Documento</th>
+							<th>Papel</th>
+							<th>Tipo</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody class="tab_usuarios" id="lista_usuarios">
+
+					</tbody>
+				</table>
+
+			</div>
+			<div class="ui basic modal" id="delete_confirmation">
+				<div class="ui icon header">
+					<i class="trash alternate icon red"></i>
+						Remover Usuário
+				</div>
+				<div class="content" style="text-align:center;">
+					<h2>Você tem certeza que deseja remover o Usuário?</h2>
+				</div>
+				<div class="actions" style="text-align:center;">
+					<div class="ui red basic cancel inverted button">
+						<i class="remove icon"></i>
+						Não
+					</div>
+					<div class="ui green ok inverted button">
+						<i class="checkmark icon"></i>
+						Sim
+					</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="semantic/semantic.min.js"></script>
+<script src="js/cadastro.js"></script>
+<script src="js/usuarios.js"></script>
+
+</html>
