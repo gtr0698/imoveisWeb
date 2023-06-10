@@ -96,5 +96,5 @@ if __name__ == '__main__':
         user = json.dumps(user)
         api = re.post(url, data=user, headers={"Content-Type": "application/json"})
         
-        print('API Response: ' + api.text + '\n')
+        print('API Response: ' + api.text + '\n') 
     

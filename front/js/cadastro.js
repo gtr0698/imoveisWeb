@@ -11,9 +11,7 @@ function get_url(){
     return directoryPath;
 
 }
-$(document).ready(function(){
-    
-});
+
 
 function abrir_cadastro() {
     $('.coupled.modal')

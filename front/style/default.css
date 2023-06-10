@@ -1,5 +1,6 @@
 body {
     background-color: grey;
+    margin-top: 4rem;
 }
 
 .ui.inverted.modal {
@@ -43,4 +44,14 @@ input::-webkit-inner-spin-button {
     box-shadow: none;
     background-color:#000000c4;
     position:relative;
-   }
+}
+
+.ui.inverted.card {
+	background: rgba(255,255,255,.15);
+	/* width: auto; */
+	display: inline-block;
+}
+
+.ui.inverted.table{
+    margin: 0px;
+}
