@@ -1,6 +1,10 @@
 body {
     background-color: grey;
-    margin-top: 4rem;
+}
+
+.conteiner-principal{
+    display: flex;
+    margin: 2rem;
 }
 
 .ui.inverted.modal {
@@ -54,4 +58,8 @@ input::-webkit-inner-spin-button {
 
 .ui.inverted.table{
     margin: 0px;
+}
+
+.ui.card {
+    margin: 0;
 }
