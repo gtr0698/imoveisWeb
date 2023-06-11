@@ -27,21 +27,12 @@ function create_cards() {
                         div_content += '<div style="font-size: 30px; ">R$ ' + val["preco"] + '</div></div>';
 
                         div_content += '<table class="ui inverted table"  id="dados_imovel' + v["id"] + '">';
+                        
                         div_content += '<tr>';
-                        div_content += '<td>Proprietário</td>';
-                        div_content += '<td>' + val["proprietario"]["nome"] + '</td>';
+                        div_content += '<td>Zona ' + val["tipoImovel"] + '</td>';
                         div_content += '</tr>';
                         div_content += '<tr>';
-                        div_content += '<td>tipoImovel</td>';
-                        div_content += '<td>' + val["tipoImovel"] + '</td>';
-                        div_content += '</tr>';
-                        div_content += '<tr>';
-                        div_content += '<td>largura</td>';
-                        div_content += '<td>' + val["largura"] + '</td>';
-                        div_content += '</tr>';
-                        div_content += '<tr>';
-                        div_content += '<td>comprimento</td>';
-                        div_content += '<td>' + val["comprimento"] + '</td>';
+                        div_content += '<td>' + val["largura"] + 'm x ' + val["comprimento"] + 'm</td>';
                         div_content += '</tr>';
                         div_content += '</div>';
                         div.innerHTML += div_content;
