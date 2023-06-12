@@ -42,8 +42,9 @@ public class ImovelService {
 
     public Imovel atualizar(Long imovelId, UpdateImovelDto imovel){
         Imovel imov = verificaExistencia(imovelId);
+        Pessoa proprietario = verificarProprietarioExistente(imovel.getProprietario().getIdPessoa());
         Imovel imovAtualizada = imov.atualizaImovel(imovel.getMatriculaImovel(),
-                imovel.getProprietario(), imovel.getTipoImovel(), imovel.getLargura(), imovel.getComprimento(), imovel.getPreco());
+                proprietario, imovel.getTipoImovel(), imovel.getLargura(), imovel.getComprimento(), imovel.getPreco());
         return imovelRepository.save(imovAtualizada);
     }
 
@@ -53,6 +54,14 @@ public class ImovelService {
             throw new RegraException("Imovel não encontrado");
         }
         return imovel.get();
+    }
+
+    public Pessoa verificarProprietarioExistente(Long pessoaId){
+        Optional<Pessoa> pessoa = pessoaRepository.findById(pessoaId);
+        if (pessoa.isEmpty()){
+            throw new RegraException("Proprietario não encontrado");
+        }
+        return pessoa.get();
     }
 
     public void excluir(Long imovelId){

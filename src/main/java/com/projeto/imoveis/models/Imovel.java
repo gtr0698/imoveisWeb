@@ -16,7 +16,8 @@ public class Imovel {
     private String matriculaImovel;
 
     @NotNull
-    @OneToOne
+    //@OneToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "id_pessoa")
     private Pessoa proprietario;
 

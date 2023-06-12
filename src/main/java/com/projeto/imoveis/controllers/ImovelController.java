@@ -13,19 +13,21 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
-@RequestMapping("cadastros/imoveis")
+@RequestMapping("/imoveis")
 public class ImovelController {
 
     @Autowired
     private ImovelService imovelService;
 
     // METODO DE LISTAR TODOS OS IMOVEIS
-    @GetMapping
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_FUNCIONARIO', 'ROLE_CLIENTE')")
+    @GetMapping("/listar")
     public ResponseEntity<Page<Imovel>> listaImoveis(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pegeable){
         Page<Imovel> imovel = imovelService.listarTodos(pegeable);
         if(imovel.isEmpty()){
@@ -34,7 +36,8 @@ public class ImovelController {
         return ResponseEntity.status(HttpStatus.OK).body(imovel);
     }
 
-    @GetMapping("/{imovelId}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_FUNCIONARIO', 'ROLE_CLIENTE')")
+    @GetMapping("/buscar/{imovelId}")
     public ResponseEntity<Object> buscarImovel(@PathVariable(value = "imovelId") Long imovelId){
         Optional<Imovel> buscarImovel = imovelService.localizar(imovelId);
         if(!buscarImovel.isPresent()){
@@ -43,20 +46,23 @@ public class ImovelController {
         return ResponseEntity.status(HttpStatus.OK).body(buscarImovel);
     }
 
-    @PostMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PostMapping("criar")
     public ResponseEntity<ResponseImovelDto> adicionarImovel(@Valid @RequestBody CreateImovelDto imovel){
         ResponseImovelDto imovelSalva = new ResponseImovelDto(imovelService.salvarImovel(imovel));
         return ResponseEntity.status(HttpStatus.CREATED).body(imovelSalva);
     }
 
-    @PutMapping("/{imovelId}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_FUNCIONARIO')")
+    @PutMapping("/atualizar/{imovelId}")
     public ResponseEntity<ResponseImovelDto> atualizarImovel(@Valid @PathVariable Long imovelId,
                                                              @RequestBody UpdateImovelDto imovel){
         ResponseImovelDto imovelSalva = new ResponseImovelDto(imovelService.atualizar(imovelId, imovel));
         return ResponseEntity.status(HttpStatus.OK).body(imovelSalva);
     }
 
-    @DeleteMapping("/{imovelId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @DeleteMapping("/remover/{imovelId}")
     public ResponseEntity<?> removerImovel(@PathVariable Long imovelId){
         imovelService.excluir(imovelId);
         return ResponseEntity.status(HttpStatus.OK).body("Imovel foi removido com Sucesso!!");

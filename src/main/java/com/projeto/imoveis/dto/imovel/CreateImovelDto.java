@@ -6,7 +6,6 @@ import com.projeto.imoveis.models.Imovel;
 import com.projeto.imoveis.models.Pessoa;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;

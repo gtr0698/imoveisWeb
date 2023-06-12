@@ -7,18 +7,16 @@ import com.projeto.imoveis.models.Pessoa;
 import com.projeto.imoveis.services.PessoaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/cadastros/pessoas")
+@RequestMapping("/pessoas")
 @CrossOrigin(origins = "*")
 public class PessoaController {
 
@@ -27,17 +25,18 @@ public class PessoaController {
     PessoaService pessoaService;
 
 
-    @GetMapping
-    public ResponseEntity<Page<Pessoa>> listaPessoas(@PageableDefault(page = 0, size = 10, sort = "idPessoa", direction = Sort.Direction.ASC)
-                                                                    Pageable pageable){
-        Page<Pessoa> pessoa = pessoaService.listarTodos(pageable);
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_FUNCIONARIO')")
+    @GetMapping("/listar")
+    public ResponseEntity<List<Pessoa>> listaPessoas(){
+        List<Pessoa> pessoa = pessoaService.listarTodos();
         if(pessoa.isEmpty()){
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.status(HttpStatus.OK).body(pessoa);
     }
 
-    @GetMapping("/{pessoaId}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_FUNCIONARIO')")
+    @GetMapping("/buscar/{pessoaId}")
     public ResponseEntity<Object> buscarPessoa(@PathVariable(value = "pessoaId") Long pessoaId){
         Optional<Pessoa> buscarPessoas = pessoaService.localizar(pessoaId);
         if(!buscarPessoas.isPresent()){
@@ -46,14 +45,16 @@ public class PessoaController {
         return ResponseEntity.status(HttpStatus.OK).body(buscarPessoas);
     }
 
-    @PostMapping
+    @PreAuthorize("permitAll()")
+    @PostMapping("/criar")
     public ResponseEntity<ResponsePessoaDto> adicionarPessoa(@Valid @RequestBody CreatePessoaDto pessoa){
         ResponsePessoaDto pessoaSalva = new ResponsePessoaDto(pessoaService.salvar(pessoa));
 
         return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
     }
 
-    @PutMapping("/{pessoaId}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENTE')")
+    @PutMapping("/atualizar/{pessoaId}")
     public ResponseEntity<ResponsePessoaDto> atualizarPessoa(@Valid @PathVariable Long pessoaId,
                                                              @RequestBody UpdatePessoaDto pessoa){
         ResponsePessoaDto pessoaSalva = new ResponsePessoaDto(pessoaService.atualizar(pessoaId,
@@ -62,10 +63,12 @@ public class PessoaController {
         return ResponseEntity.status(HttpStatus.OK).body(pessoaSalva);
     }
 
-    @DeleteMapping("/{pessoaId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @DeleteMapping("/remover/{pessoaId}")
     public ResponseEntity<?> removerPessoa(@PathVariable Long pessoaId){
         pessoaService.excluir(pessoaId);
 
         return ResponseEntity.status(HttpStatus.OK).body("Removido com sucesso!");
     }
+
 }
