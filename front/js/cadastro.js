@@ -11,9 +11,7 @@ function get_url(){
     return directoryPath;
 
 }
-$(document).ready(function(){
-    
-});
+
 
 function abrir_cadastro() {
     $('.coupled.modal')
@@ -127,22 +125,38 @@ function cadastro_fisica() {
         obj_form[k] = v;
     }
     obj_form['papel'] = "CLIENTE";
-   
+    console.log(obj_form);
     xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 201) {
+        if (this.readyState == 4 && this.status == 200) {
             console.log("ok");
         }
-		if (this.readyState == 4 && this.status == 415) {
-            console.log("XHR" + xhr.response);
-        }
-		//if (this.status == 400) {
-          //  console.log("XHR" + xhr.response);
-        //}
-	}
+    }
 
     obj_form = JSON.stringify(obj_form);
-    //console.log(typeof(xhr))
-	
-	xhr.send(obj_form);
-	
+    xhr.send(obj_form);
+}
+
+
+function cadastro_juridica() {
+    const formulario = document.getElementById("form_pessoa_juridica");
+    const url = 'https://localhost:8080/cadastros/pessoa-juridica';
+    const dados_form = new FormData(formulario);
+    var obj_form = {};
+    const xhr = new XMLHttpRequest();
+    const nome = document.getElementById('nome');
+    xhr.open('POST', url, true);
+    
+    for (const [k, v] of dados_form.entries()) {
+        obj_form[k] = v;
+    }
+    obj_form['papel'] = "CLIENTE";
+    console.log(obj_form);
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log("ok");
+        }
+    }
+
+    obj_form = JSON.stringify(obj_form);
+    xhr.send(obj_form);
 }
