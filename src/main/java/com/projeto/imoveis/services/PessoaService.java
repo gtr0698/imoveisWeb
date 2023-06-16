@@ -1,5 +1,6 @@
 package com.projeto.imoveis.services;
 
+import com.projeto.imoveis.dto.Login;
 import com.projeto.imoveis.dto.pessoa.CreatePessoaDto;
 import com.projeto.imoveis.dto.pessoa.UpdatePessoaDto;
 import com.projeto.imoveis.exception.RegraException;
@@ -7,7 +8,7 @@ import com.projeto.imoveis.models.Pessoa;
 import com.projeto.imoveis.repositories.PessoaRepository;
 import com.projeto.imoveis.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,13 +23,13 @@ public class PessoaService {
     @Autowired
     RoleRepository roleRepository;
 
-    private BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
+//    private BCryptPasswordEncoder passwordEncoder(){
+//        return new BCryptPasswordEncoder();
+//    }
 
 
     public List<Pessoa> listarTodos() {
-        return pessoaRepository.findAllClientes();
+        return pessoaRepository.findAll();
     }
 
     public Optional<Pessoa> localizar(Long pessoafId) {
@@ -37,13 +38,13 @@ public class PessoaService {
 
     public Pessoa salvar(CreatePessoaDto pessoa) {
 
-        Optional<Pessoa> pessoaExistente = pessoaRepository.findByEmail(pessoa.getEmail());
+        Pessoa pessoaExistente = pessoaRepository.findByEmail(pessoa.getEmail());
 
-        if(pessoaExistente.isPresent()){
+        if(pessoaExistente != null){
             throw new RegraException("Já existe um registro com esse email cadastrado.");
         }
 
-        pessoa.setSenha(passwordEncoder().encode(pessoa.getSenha()));
+        //pessoa.setSenha(passwordEncoder().encode(pessoa.getSenha()));
 
         Pessoa novaPessoa = pessoa.convertToModel();
         return pessoaRepository.save(novaPessoa);
@@ -53,11 +54,11 @@ public class PessoaService {
     public Pessoa atualizar(Long pessoaId, UpdatePessoaDto pessoaUpdate) {
         Pessoa pessoa = verificaExistencia(pessoaId);
 
-        pessoaUpdate.setSenha(passwordEncoder().encode(pessoaUpdate.getSenha()));
+        //pessoaUpdate.setSenha(passwordEncoder().encode(pessoaUpdate.getSenha()));
 
         Pessoa pessoaAtualizada = pessoa.atualizaPessoa(pessoaUpdate.getNome(),
                 pessoaUpdate.getEmail(),pessoaUpdate.getTelefone(),pessoaUpdate.getNumeroDocumento(),
-                pessoaUpdate.getTipoPessoa(), pessoaUpdate.getSenha(), pessoaUpdate.getCargo());
+                pessoaUpdate.getTipoPessoa(), pessoaUpdate.getSenha());
 
         return pessoaRepository.save(pessoaAtualizada);
     }
@@ -80,4 +81,14 @@ public class PessoaService {
         pessoaRepository.deleteById(pessoaId);
     }
 
+    public Pessoa localizarLogin(Login login){
+
+        //login.setSenha(passwordEncoder().encode(login.getSenha()));
+
+        Pessoa retornaPessoa = pessoaRepository.findByEmail(login.getEmail());
+
+        retornaPessoa.getSenha().compareTo(login.getSenha());
+
+        return retornaPessoa;
+    }
 }

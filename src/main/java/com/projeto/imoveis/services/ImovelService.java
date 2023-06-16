@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,8 +24,8 @@ public class ImovelService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    public Page<Imovel> listarTodos(Pageable pageable) {
-        return imovelRepository.findAll(pageable);
+    public List<Imovel> listarTodos() {
+        return imovelRepository.findAll();
     }
 
     public Optional<Imovel> localizar(Long imovelId){

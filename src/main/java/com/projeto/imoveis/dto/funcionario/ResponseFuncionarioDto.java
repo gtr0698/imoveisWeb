@@ -1,7 +1,7 @@
 package com.projeto.imoveis.dto.funcionario;
 
 import com.projeto.imoveis.enums.TipoPessoa;
-import com.projeto.imoveis.models.Pessoa;
+import com.projeto.imoveis.models.Funcionario;
 import lombok.Getter;
 
 @Getter
@@ -14,7 +14,7 @@ public class ResponseFuncionarioDto {
     private TipoPessoa tipoPessoa;
     private String cargo;
 
-    public ResponseFuncionarioDto(Pessoa funcionario) {
+    public ResponseFuncionarioDto(Funcionario funcionario) {
         this.nome = funcionario.getNome();
         this.email = funcionario.getEmail();
         this.telefone = funcionario.getTelefone();
