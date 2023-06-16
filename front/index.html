@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style/index.css"/>
+    <title>Início</title>
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
-    <h1>TESTE</h1>
+<iframe src="navbar.html" frameborder="0" scrolling="no" width="100%" height="50"></iframe>
+<div class="conteiner-principal">
+    <div class="subPrincipal">
+        <div class="titulo">
+            <h1>
+                <strong>
+                    Encontre o lar perfeito: uma seleção exclusiva de imóveis esperando por você.
+                </strong>
+            </h1>
+        </div>
+        <div class="slideshow">
+            <img src="img/imovel-4.png" alt="Imagem 1">
+            <img src="img/imovel-2.png" alt="Imagem 2">
+            <img src="img/imovel-3.png" alt="Imagem 3">
+            <img src="img/imovel-5.png" alt="Imagem 5">
+            <img src="img/imovel-8.png" alt="Imagem 8">
+        </div>
+    </div>
+</div>
 </body>
+<script src="js/index.js"></script>
 </html>
-<script>
-    // Seu código JavaScript para carregar a navbar
-    document.addEventListener("DOMContentLoaded", function() {
-        var navbarPlaceholder = document.getElementById("navbar-placeholder");
-
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "navbar.html", true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                navbarPlaceholder.innerHTML = xhr.responseText;
-            }
-        };
-        xhr.send();
-    });
-</script>

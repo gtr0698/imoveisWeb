@@ -1,0 +1,53 @@
+body {
+    margin: 0px;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.titulo {
+    font-family: system-ui;
+    display: flex;
+    margin-left: 4rem;
+    flex-direction: row;
+    height: auto;
+    width: 30%;
+}
+
+.titulo h1 {
+    line-height: 1.5;
+    font-size: 3.0rem;
+}
+
+@media(max-width: 1300px){
+    .titulo h1 {
+        font-size: 2rem;
+    }
+}
+
+.subPrincipal {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+}
+
+.slideshow {
+    width: 56rem;
+    height: 56rem;
+    margin: 2rem;
+}
+
+.slideshow img {
+    display: none;
+    width: 100%;
+    height: auto;
+    border-radius: 2.5%;
+}
+
+.slideshow img:first-child {
+    display: block;
+}
+

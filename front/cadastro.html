@@ -30,10 +30,8 @@
       papel;
   -->
 
-  <div id="navbar-placeholder"></div>
-  <div class="grey_body_wrapper medium_table_custom">
-
-    <button class="ui inverted primary button" onclick="abrir_cadastro()">Cadastrar Usuário</button>
+<!--  <div id="navbar-placeholder"></div>-->
+  <iframe src="navbar.html" frameborder="0" scrolling="no" width="100%" height="50"></iframe>
     <!-- Abrir Cadastro -->
     <div class="ui inverted tiny modal" id="mdl_abrir_cadastro">
       <i class="close icon"></i>
@@ -88,18 +86,8 @@
 <script src="semantic/semantic.min.js"></script>
 <script src="js/cadastro.js"></script>
 <script>
-  // Seu código JavaScript para carregar a navbar
-  document.addEventListener("DOMContentLoaded", function () {
-    var navbarPlaceholder = document.getElementById("navbar-placeholder");
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "navbar.html", true);
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        navbarPlaceholder.innerHTML = xhr.responseText;
-      }
-    };
-    xhr.send();
+  document.addEventListener("DOMContentLoaded", function() {
+    abrir_cadastro(); // Chame a função desejada aqui
   });
 </script>
 
