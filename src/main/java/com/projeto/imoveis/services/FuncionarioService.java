@@ -1,49 +1,74 @@
 package com.projeto.imoveis.services;
 
-import com.projeto.imoveis.dto.funcionario.CreateFuncionarioDto;
-import com.projeto.imoveis.dto.funcionario.UpdateFuncionarioDto;
+import com.projeto.imoveis.dto.pessoa.CreatePessoaDto;
 import com.projeto.imoveis.exception.RegraException;
-import com.projeto.imoveis.models.CadFuncionario;
-import com.projeto.imoveis.repositories.CadFuncionarioRepository;
+import com.projeto.imoveis.models.Pessoa;
+import com.projeto.imoveis.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class FuncionarioService {
 
     @Autowired
-    CadFuncionarioRepository funcionarioRepository;
+    PessoaRepository pessoaRepository;
 
-    public Page<CadFuncionario> listarTodos(Pageable pageable) {
-        return funcionarioRepository.findAll(pageable);
+    private BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 
-    public Optional<CadFuncionario> localizar(Long funcionarioId) {
-        return funcionarioRepository.findById(funcionarioId);
+
+    public List<Pessoa> listarTodosFunc() {
+        return pessoaRepository.findAllByCargo();
     }
 
-    public CadFuncionario salvar(CreateFuncionarioDto funcionario) {
+    /*
+    public Optional<Pessoa> localizarFunc(Long funcionarioId) {
+        return pessoaRepository.findById(funcionarioId);
+    }
+    */
 
-        CadFuncionario novoFuncionario = funcionario.convertToModel();
+    public Pessoa salvarFunc(CreatePessoaDto funcionario) {
 
-        return funcionarioRepository.save(novoFuncionario);
+        Optional<Pessoa> pessoaExistente = pessoaRepository.findByEmail(funcionario.getEmail());
+
+        if(pessoaExistente.isPresent()){
+            throw new RegraException("Já existe um registro com esse email cadastrado.");
+        }
+
+        funcionario.setSenha(passwordEncoder().encode(funcionario.getSenha()));
+
+        Pessoa novoFuncionario = funcionario.convertToModel();
+
+        return pessoaRepository.save(novoFuncionario);
     }
 
-    public CadFuncionario atualizar(Long funcionarioId, UpdateFuncionarioDto funcionario) {
-        CadFuncionario func = verificaExistencia(funcionarioId);
-        CadFuncionario funcionarioAtualizado = func.atualizaCadFuncionario(funcionario.getNome(), funcionario.getEmail(),
-                funcionario.getTelefone(), funcionario.getNumeroDocumento(),funcionario.getTipoPessoa(), funcionario.getPapel(),
-                funcionario.getCargo(), funcionario.getSenha());
+    /*
+    public Pessoa atualizarFunc(Long funcionarioId, UpdatePessoaDto funcionario) {
+        Pessoa func = verificaExistencia(funcionarioId);
 
-        return funcionarioRepository.save(funcionarioAtualizado);
+        funcionario.setSenha(passwordEncoder().encode(funcionario.getSenha()));
+
+        Pessoa funcAtualizado = func.atualizaPessoa(funcionario.getNome(), funcionario.getEmail(),
+                funcionario.getTelefone(), funcionario.getNumeroDocumento(), funcionario.getTipoPessoa(),
+                funcionario.getSenha(), funcionario.getCargo());
+
+        return pessoaRepository.save(funcAtualizado);
     }
 
-    public CadFuncionario verificaExistencia(Long funcionarioId){
-        Optional<CadFuncionario> funcionario = funcionarioRepository.findById(funcionarioId);
+    public void excluirFunc(Long funcionarioId) {
+
+        verificaExistencia(funcionarioId);
+
+        pessoaRepository.deleteById(funcionarioId);
+    }
+
+    public Pessoa verificaExistencia(Long funcionarioId){
+        Optional<Pessoa> funcionario = pessoaRepository.findById(funcionarioId);
 
         if(funcionario.isEmpty()){
 
@@ -52,11 +77,5 @@ public class FuncionarioService {
 
         return funcionario.get();
     }
-
-    public void excluir(Long funcionarioId) {
-
-        verificaExistencia(funcionarioId);
-
-        funcionarioRepository.deleteById(funcionarioId);
-    }
+    */
 }

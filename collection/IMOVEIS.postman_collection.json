@@ -6,27 +6,19 @@
 	},
 	"item": [
 		{
-<<<<<<< HEAD
 			"name": "PESSOAS",
 			"item": [
 				{
 					"name": "ADICIONAR PESSOA",
-=======
-			"name": "PESSOA FISICA",
-			"item": [
-				{
-					"name": "POST P_FISICA",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-<<<<<<< HEAD
-							"raw": "{\r\n    \"nome\": \"Teste\",\r\n    \"email\": \"teste@gmail.com\",\r\n    \"telefone\": \"45999999988\",\r\n    \"numeroDocumento\": \"213456789655\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"papel\": \"CLIENTE\",\r\n    \"senha\": \"123456\"\r\n}",
-=======
-							"raw": "{\r\n    \"nome\": \"Teste\",\r\n    \"email\": \"teste5@gmail.com\",\r\n    \"cpf\": \"123456789155\",\r\n    \"genero\": \"FEMININO\",\r\n    \"dataNascimento\": \"1995-05-16\",\r\n    \"papel\": \"CLIENTE\"\r\n}",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+							"raw": "{\r\n    \"nome\": \"Emily\",\r\n    \"email\": \"emily@teste.com\",\r\n    \"telefone\": \"45999999922\",\r\n    \"numeroDocumento\": \"12345678922\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"role\": [{\r\n        \"roleId\": 3\r\n    }],\r\n    \"senha\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -34,84 +26,82 @@
 							}
 						},
 						"url": {
-<<<<<<< HEAD
-							"raw": "localhost:8080/cadastros/pessoas",
-=======
-							"raw": "localhost:8080/cadastros/pessoa-fisica",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+							"raw": "localhost:8080/pessoas/criar",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"cadastros",
-<<<<<<< HEAD
-								"pessoas"
-=======
-								"pessoa-fisica"
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
-							]
-						}
-					},
-					"response": []
-				},
-				{
-<<<<<<< HEAD
-					"name": "LISTAR PESSOAS",
-=======
-					"name": "LISTAR P_FISICA",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-<<<<<<< HEAD
-							"raw": "localhost:8080/cadastros/pessoas",
-=======
-							"raw": "localhost:8080/cadastros/pessoa-fisica",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-<<<<<<< HEAD
-								"pessoas"
-=======
-								"pessoa-fisica"
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
-							]
-						}
-					},
-					"response": []
-				},
-				{
-<<<<<<< HEAD
-					"name": "BUSCAR PESSOA",
-=======
-					"name": "BUSCAR P_FISICA",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-<<<<<<< HEAD
-							"raw": "localhost:8080/cadastros/pessoas/1",
-=======
-							"raw": "localhost:8080/cadastros/pessoa-fisica/1",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-<<<<<<< HEAD
 								"pessoas",
-=======
-								"pessoa-fisica",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LISTAR PESSOAS",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guilherme@admin.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pessoas/listar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR PESSOA",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guilherme@admin.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pessoas/buscar/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"buscar",
 								"1"
 							]
 						}
@@ -119,21 +109,28 @@
 					"response": []
 				},
 				{
-<<<<<<< HEAD
 					"name": "ATUALIZAR PESSOA",
-=======
-					"name": "ATUALIZAR P_FISICA",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guilherme@admin.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-<<<<<<< HEAD
-							"raw": "{\r\n    \"nome\": \"Teste1\",\r\n    \"email\": \"teste1@gmail.com\",\r\n    \"telefone\": \"45999993333\",\r\n    \"numeroDocumento\": \"213456789636\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"papel\": \"CLIENTE\",\r\n    \"senha\": \"654321\"\r\n}",
-=======
-							"raw": "{\r\n    \"nome\": \"Teste\",\r\n    \"email\": \"teste1234@gmail.com\",\r\n    \"cpf\": \"12345678912\",\r\n    \"genero\": \"MASCULINO\",\r\n    \"dataNascimento\": \"1998-01-01\",\r\n    \"papel\": \"CLIENTE\"\r\n}",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+							"raw": "{\r\n    \"nome\": \"Lucia\",\r\n    \"email\": \"lucia@gmail.com\",\r\n    \"telefone\": \"45999999977\",\r\n    \"numeroDocumento\": \"12345678977\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"senha\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -141,56 +138,50 @@
 							}
 						},
 						"url": {
-<<<<<<< HEAD
-							"raw": "localhost:8080/cadastros/pessoas/1",
-=======
-							"raw": "localhost:8080/cadastros/pessoa-fisica/1",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+							"raw": "localhost:8080/pessoas/atualizar/5",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"cadastros",
-<<<<<<< HEAD
 								"pessoas",
-=======
-								"pessoa-fisica",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
-								"1"
+								"atualizar",
+								"5"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-<<<<<<< HEAD
 					"name": "DELETAR PESSOA",
-=======
-					"name": "DELETAR P_FISICA",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guilherme@admin.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-<<<<<<< HEAD
-							"raw": "localhost:8080/cadastros/pessoas/2",
-=======
-							"raw": "localhost:8080/cadastros/pessoa-fisica/52",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+							"raw": "localhost:8080/pessoas/remover/9",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"cadastros",
-<<<<<<< HEAD
 								"pessoas",
-								"2"
-=======
-								"pessoa-fisica",
-								"52"
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+								"remover",
+								"9"
 							]
 						}
 					},
@@ -199,23 +190,37 @@
 			]
 		},
 		{
-<<<<<<< HEAD
 			"name": "IMOVEIS",
 			"item": [
 				{
 					"name": "LISTAR IMOVEIS",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guilherme@admin.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/cadastros/imoveis",
+							"raw": "localhost:8080/imoveis/listar",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"cadastros",
-								"imoveis"
+								"imoveis",
+								"listar"
 							]
 						}
 					},
@@ -223,22 +228,27 @@
 				},
 				{
 					"name": "ADICIONAR IMOVEL",
-=======
-			"name": "PESSOA JURIDICA",
-			"item": [
-				{
-					"name": "ADICIONAR P_JURIDICA",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guilherme@admin.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-<<<<<<< HEAD
-							"raw": "{\r\n    \"matriculaImovel\": \"325964\",\r\n    \"proprietario\": {\r\n        \"id\": 2\r\n    },\r\n    \"tipoImovel\": \"URBANO\",\r\n    \"largura\": 20.5,\r\n    \"comprimento\": 15.2,\r\n    \"preco\": 300000\r\n}",
-=======
-							"raw": "{\r\n    \"nome\": \"Teste Corp\",\r\n    \"email\": \"testecorp@gmail.com\",\r\n    \"razaoSocial\": \"teste corp ltda\",\r\n    \"nomeFantasia\": \"Teste Corp\",\r\n    \"cnpj\": \"12345678912132\",\r\n    \"papel\": \"CLIENTE\"\r\n}",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+							"raw": "{\r\n    \"matriculaImovel\": \"325968\",\r\n    \"proprietario\": {\r\n        \"id\": 5\r\n    },\r\n    \"tipoImovel\": \"URBANO\",\r\n    \"largura\": 35.5,\r\n    \"comprimento\": 20.2,\r\n    \"preco\": 500000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -246,95 +256,77 @@
 							}
 						},
 						"url": {
-<<<<<<< HEAD
-							"raw": "localhost:8080/cadastros/imoveis",
-=======
-							"raw": "localhost:8080/cadastros/pessoa-juridica",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+							"raw": "localhost:8080/imoveis/criar",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"cadastros",
-<<<<<<< HEAD
-								"imoveis"
-=======
-								"pessoa-juridica"
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
-							]
-						}
-					},
-					"response": []
-				},
-				{
-<<<<<<< HEAD
-					"name": "BUSCAR IMOVEIS",
-=======
-					"name": "LISTAR P_JURIDICA",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-<<<<<<< HEAD
-							"raw": "localhost:8080/cadastros/imoveis/1",
-=======
-							"raw": "localhost:8080/cadastros/pessoa-juridica",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cadastros",
-<<<<<<< HEAD
 								"imoveis",
-								"1"
-=======
-								"pessoa-juridica"
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+								"criar"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-<<<<<<< HEAD
-					"name": "ATUALIZAR IMOVEL",
-=======
-					"name": "BUSCAR P_JURIDICA",
+					"name": "BUSCAR IMOVEIS",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guilherme@admin.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/cadastros/pessoa-juridica/2",
+							"raw": "localhost:8080/imoveis/buscar/1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"cadastros",
-								"pessoa-juridica",
-								"2"
+								"imoveis",
+								"buscar",
+								"1"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "ATUALIZAR P_JURIDICA",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+					"name": "ATUALIZAR IMOVEL",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guilherme@admin.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-<<<<<<< HEAD
-							"raw": "{\r\n    \"matriculaImovel\": \"325964\",\r\n    \"proprietario\": {\r\n        \"id\": 2\r\n    },\r\n    \"tipoImovel\": \"URBANO\",\r\n    \"largura\": 20.5,\r\n    \"comprimento\": 15.2,\r\n    \"preco\": 300000\r\n}",
-=======
-							"raw": "{\r\n    \"nome\": \"Teste Corp\",\r\n    \"email\": \"testecorp@gmail.com\",\r\n    \"razaoSocial\": \"teste corp ltda\",\r\n    \"nomeFantasia\": \"Teste Corp\",\r\n    \"cnpj\": \"12345678912155\",\r\n    \"papel\": \"CLIENTE\"\r\n}",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+							"raw": "{\r\n    \"matriculaImovel\": \"325964\",\r\n    \"proprietario\": {\r\n        \"idPessoa\": 8\r\n    },\r\n    \"tipoImovel\": \"RURAL\",\r\n    \"largura\": 50.5,\r\n    \"comprimento\": 20.2,\r\n    \"preco\": 1000000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -342,56 +334,132 @@
 							}
 						},
 						"url": {
-<<<<<<< HEAD
-							"raw": "localhost:8080/cadastros/imoveis/1",
-=======
-							"raw": "localhost:8080/cadastros/pessoa-juridica/2",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+							"raw": "localhost:8080/imoveis/atualizar/1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"cadastros",
-<<<<<<< HEAD
 								"imoveis",
+								"atualizar",
 								"1"
-=======
-								"pessoa-juridica",
-								"2"
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
 							]
 						}
 					},
 					"response": []
 				},
 				{
-<<<<<<< HEAD
 					"name": "DELETAR IMOVEL",
-=======
-					"name": "DELETAR P_JURIDICA",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guilherme@admin.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-<<<<<<< HEAD
-							"raw": "localhost:8080/cadastros/imoveis/1",
-=======
-							"raw": "localhost:8080/cadastros/pessoa-juridica/1",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
+							"raw": "localhost:8080/imoveis/remover/3",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"cadastros",
-<<<<<<< HEAD
 								"imoveis",
-=======
-								"pessoa-juridica",
->>>>>>> 3d865a8e6ceeb6450873d517f301efdc6d3b4826
-								"1"
+								"remover",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FUNCIONARIOS",
+			"item": [
+				{
+					"name": "LISTAR FUNCIONARIOS",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guilherme@admin.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/funcionarios/listar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADICIONAR FUNCIONARIO",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guilherme@admin.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Cristiano\",\r\n    \"email\": \"cristiano@teste.com\",\r\n    \"telefone\": \"45999999968\",\r\n    \"numeroDocumento\": \"12345678968\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"role\": [{\r\n        \"roleId\": 2\r\n    }],\r\n    \"senha\": \"123456\",\r\n    \"cargo\": \"Corretor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/funcionarios/criar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"criar"
 							]
 						}
 					},

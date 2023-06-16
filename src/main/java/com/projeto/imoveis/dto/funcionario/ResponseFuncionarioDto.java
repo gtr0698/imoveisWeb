@@ -1,8 +1,7 @@
 package com.projeto.imoveis.dto.funcionario;
 
-import com.projeto.imoveis.enums.Papeis;
 import com.projeto.imoveis.enums.TipoPessoa;
-import com.projeto.imoveis.models.CadFuncionario;
+import com.projeto.imoveis.models.Pessoa;
 import lombok.Getter;
 
 @Getter
@@ -13,16 +12,14 @@ public class ResponseFuncionarioDto {
     private String telefone;
     private String numeroDocumento;
     private TipoPessoa tipoPessoa;
-    private Papeis papel;
     private String cargo;
 
-    public ResponseFuncionarioDto(CadFuncionario funcionario) {
+    public ResponseFuncionarioDto(Pessoa funcionario) {
         this.nome = funcionario.getNome();
         this.email = funcionario.getEmail();
         this.telefone = funcionario.getTelefone();
         this.numeroDocumento = funcionario.getNumeroDocumento();
         this.tipoPessoa = funcionario.getTipoPessoa();
-        this.papel = funcionario.getPapel();
         this.cargo = funcionario.getCargo();
     }
 }
