@@ -12,14 +12,19 @@ body {
     display: flex;
     margin-left: 4rem;
     flex-direction: row;
-    height: 100%;
+    height: auto;
     width: 30%;
 }
 
 .titulo h1 {
     line-height: 1.5;
-    font-size: 3.5rem;
+    font-size: 3.0rem;
+}
 
+@media(max-width: 1300px){
+    .titulo h1 {
+        font-size: 2rem;
+    }
 }
 
 .subPrincipal {

@@ -2,3 +2,18 @@
     text-align: center;
 }
 
+.pesquisa{
+    margin-bottom: 0.5rem;
+}
+
+.ui.basic.primary.button, .ui.basic.primary.buttons .button {
+    box-shadow: 0 0 0 1px #2185d0 inset!important;
+    background-color: #2185d0!important;
+    color: #fff !important;
+}
+
+.ui.basic.red.button, .ui.basic.red.buttons .button {
+    box-shadow: 0 0 0 1px #db2828 inset!important;
+    background-color: #db2828!important;
+    color: #fff !important;
+}
