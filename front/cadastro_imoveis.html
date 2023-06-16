@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="style/default.css">
+    <link rel="stylesheet" type="text/css" href="style/cadastro_imoveis.css">
+    <title>Cadstro de Imóveis</title>
+</head>
+
+<body>
+    <div id="content">
+        <div class="ui medium_table_custom grey_body_wrapper">
+            <div class="ui panel black_panel">
+                <h1>Cadastro de Imóvel</h1>
+                <hr>
+                <form class="ui form" id="form_cadastro_imovel">
+                    <div class="ui inverted form">
+                        <div class="two fields">
+                            <div class="two wide field" style="display: none;">
+                                <label for="id">ID</label>
+                                <input type="text" placeholder="id" name="id" id="id" value="">
+                            </div>
+                            <div class="two wide field">
+                                <label for="matricula">Matricula</label>
+                                <input type="text" placeholder="Matricula do Imóvel" name="matricula" id="matricula">
+                            </div>
+                            <div class="two wide field">
+                                <label for="proprietario">Proprietário</label>
+                                <input type="number" placeholder="ID do Proprietário" name="proprietario"
+                                    id="proprietario">
+                            </div>
+                        </div>
+                        <div class="two fields">
+                            <div class="three wide field">
+                                <label for="largura">Largura (m)</label>
+                                <input type="number" inputmode="largura" placeholder="Largura do Imóvel" id="largura"
+                                    name="largura">'
+                            </div>
+                            <div class="three wide field">
+                                <label for="comprimento">Comprimento (m)</label>
+                                <input type="number" placeholder="Comprimento do Imóvel" id="comprimento"
+                                    name="comprimento">
+                            </div>
+
+                        </div>
+                        <div class="three fields" style="position: relative;">
+                            <div class="three wide field">
+                                <label for="preco">Preço</label>
+                                <input type="number" placeholder="Preço do Imóvel" id="preco" name="preco">
+                            </div>
+                            <div class="three wide field">
+                                <label for="tipoImovel">Tipo do Imóvel</label>
+                                <select id="tipoImovel" name="tipoImovel">
+                                    <option value=""></option>
+                                    <option value="URBANO">Urbano</option>
+                                    <option value="RURAL">Rural</option>
+                                </select>
+                            </div>
+                            <div class="two wide field" id="btn_salvar">
+                                <div class="ui green button" onclick="salvar_imovel()">Salvar</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                <hr>
+                <div class="ui primary button">Editar</div>
+                <div class="ui negative button" onclick="modal_remover()">Remover</div>
+                <!-- Modal de Busca para Edição -->
+                <!-- Modal de Deleção -->
+                <div class="ui inverted tiny modal" id="mdl_deletar_imovel">
+                    <i class="close icon"></i>
+                    <div class="header">
+                      Deletar Imóvel
+                    </div>
+                    <div class="content">
+                        <h2>ID</h2>
+                        <input type="number" size="" placeholder="ID do Imóvel" id="deletar_id" value="" oninput="limitarTamanho()">
+                    </div>
+                    <div class="actions">
+                      <div class="ui negative button">Cancelar</div>
+                      <div class="ui primary button" id="btn_fisica" onclick="deletar_imovel()">Deletar</div>
+                    </div>
+                  </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="semantic/semantic.min.js"></script>
+<script src="js/cadastro_imoveis.js"></script>
+
+</html>
