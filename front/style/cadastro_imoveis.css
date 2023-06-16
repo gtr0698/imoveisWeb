@@ -1,9 +1,24 @@
 #btn_salvar {
     text-align: right;
-    position: absolute;
-    bottom: 0;
-    right: 0;
 }
 h1{
     color: white;
+}
+
+.ui.form .fields {
+    max-width: 80rem;
+    width: 100%;
+    justify-content: end;
+}
+
+.ui.form .two.wide.field {
+    width: 100%!important;
+}
+
+.ui.form .three.wide.field {
+    width: 100%!important;
+}
+
+.ui.form .three.wide.field {
+    width: 100%!important;
 }
