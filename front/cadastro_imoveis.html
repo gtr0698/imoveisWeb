@@ -60,7 +60,8 @@
                                     <option value="RURAL">Rural</option>
                                 </select>
                             </div>
-                            <div class="two wide field" id="btn_salvar">
+                            <div class="three wide field" id="btn_salvar">
+                                <div class="ui negative button" onclick="limpar_imovel()">Limpar</div>
                                 <div class="ui green button" onclick="salvar_imovel()">Salvar</div>
                             </div>
                         </div>
@@ -68,9 +69,23 @@
                     </div>
                 </form>
                 <hr>
-                <div class="ui primary button">Editar</div>
+                <div class="ui primary button" onclick="modal_editar()">Editar</div>
                 <div class="ui negative button" onclick="modal_remover()">Remover</div>
                 <!-- Modal de Busca para Edição -->
+                <div class="ui inverted tiny modal" id="mdl_editar_imovel">
+                    <i class="close icon"></i>
+                    <div class="header">
+                      Editar Imóvel
+                    </div>
+                    <div class="content">
+                        <h2>ID</h2>
+                        <input type="number" placeholder="ID do Imóvel" id="editar_id" value="">
+                    </div>
+                    <div class="actions">
+                      <div class="ui negative button">Cancelar</div>
+                      <div class="ui primary button" id="btn_fisica" onclick="buscar_imovel()">Buscar</div>
+                    </div>
+                  </div>
                 <!-- Modal de Deleção -->
                 <div class="ui inverted tiny modal" id="mdl_deletar_imovel">
                     <i class="close icon"></i>
@@ -79,7 +94,7 @@
                     </div>
                     <div class="content">
                         <h2>ID</h2>
-                        <input type="number" size="" placeholder="ID do Imóvel" id="deletar_id" value="" oninput="limitarTamanho()">
+                        <input type="number" placeholder="ID do Imóvel" id="deletar_id" value="" >
                     </div>
                     <div class="actions">
                       <div class="ui negative button">Cancelar</div>
