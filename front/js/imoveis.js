@@ -14,7 +14,7 @@ function create_cards() {
         if (this.readyState == 4 && this.status == 200) {
             var res = this.responseText;
             var data = JSON.parse(res);
-            console.log(data)
+
             for (const [k, v] of Object.entries(data)) {
 
                 var div = document.createElement('div');
@@ -96,7 +96,7 @@ function modal_agendar(){
     div_content += '</div>';
     div_content += '<div class="six wide field">';
     div_content += '<label for="funcionario">Corretor</label>';
-    div_content += '<select id="funcionario" name="funcionario" id="funcionario_dropdown">';
+    div_content += '<select name="funcionario" id="funcionario_dropdown">';
     div_content += '<option value=""></option>';
     // div_content += '<option value="PESSOA_FISICA">Pessoa Física</option>';
     // div_content += '<option value="PESSOA_JURIDICA">Pessoa Jurídica</option>';
