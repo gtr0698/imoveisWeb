@@ -92,12 +92,15 @@ public class PessoaService {
 
     public Pessoa localizarLogin(Login login){
 
-        //login.setSenha(passwordEncoder().encode(login.getSenha()));
-
         Pessoa retornaPessoa = pessoaRepository.findByEmail(login.getEmail());
 
-        retornaPessoa.getSenha().compareTo(login.getSenha());
+        if(retornaPessoa != null){
+            boolean senhasIguais = retornaPessoa.getSenha().compareTo(login.getSenha()) == 0;
 
-        return retornaPessoa;
+            if (senhasIguais) {
+                return retornaPessoa;
+            }
+        }
+        return null;
     }
 }

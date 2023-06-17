@@ -74,8 +74,7 @@ public class PessoaController {
         return ResponseEntity.status(HttpStatus.OK).body("Removido com sucesso!");
     }
 
-    //@PreAuthorize("permitAll()")
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody Login login){
         Pessoa buscarPessoaNoLogin = pessoaService.localizarLogin(login);
         if(buscarPessoaNoLogin == null){

@@ -18,7 +18,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Empresa Teste\",\r\n    \"email\": \"empresateste@teste.com\",\r\n    \"telefone\": \"45999999972\",\r\n    \"numeroDocumento\": \"12345678910111\",\r\n    \"role\": [{\r\n        \"roleId\": 3\r\n    }],\r\n    \"senha\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Empresa Teste 3\",\r\n    \"email\": \"empr33352esateste@teste.com\",\r\n    \"telefone\": \"45999444973\",\r\n    \"numeroDocumento\": \"12345555910122\",\r\n    \"role\": [{\r\n        \"roleId\": 3\r\n    }],\r\n    \"senha\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -141,30 +141,15 @@
 				},
 				{
 					"name": "LOGIN",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "66859370-ad4d-4b1a-b4e7-a4fee2fa8667",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "user",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"guilherme@admin.com\",\r\n    \"senha\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"email\": \"empr33352esateste@teste.com\",\r\n    \"senha\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -180,6 +165,18 @@
 							"path": [
 								"pessoas",
 								"login"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -518,7 +515,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"dataAgendamento\": \"2023-07-05\",\r\n    \"pessoa\": [{\r\n        \"idPessoa\": 1\r\n    }],\r\n    \"funcionario\": [{\r\n        \"idFuncionario\": 1\r\n    }]\r\n}",
+							"raw": "{\r\n    \"dataAgendamento\": \"2023-07-06\",\r\n    \"pessoa\": [{\r\n        \"idPessoa\": 8\r\n    }],\r\n    \"funcionario\": [{\r\n        \"idFuncionario\": 1\r\n    }]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
