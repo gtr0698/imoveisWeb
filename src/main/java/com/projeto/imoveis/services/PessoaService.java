@@ -3,6 +3,7 @@ package com.projeto.imoveis.services;
 import com.projeto.imoveis.dto.Login;
 import com.projeto.imoveis.dto.pessoa.CreatePessoaDto;
 import com.projeto.imoveis.dto.pessoa.UpdatePessoaDto;
+import com.projeto.imoveis.enums.TipoPessoa;
 import com.projeto.imoveis.exception.RegraException;
 import com.projeto.imoveis.models.Pessoa;
 import com.projeto.imoveis.repositories.PessoaRepository;
@@ -42,6 +43,14 @@ public class PessoaService {
 
         if(pessoaExistente != null){
             throw new RegraException("Já existe um registro com esse email cadastrado.");
+        }
+
+        if(pessoa.getNumeroDocumento().length() == 11){
+            pessoa.setTipoPessoa(TipoPessoa.PESSOA_FISICA);
+        } else if(pessoa.getNumeroDocumento().length() == 14){
+            pessoa.setTipoPessoa(TipoPessoa.PESSOA_JURIDICA);
+        } else {
+            throw new RegraException("Quantidade de caracteres invalida para o campo Numero Documento.");
         }
 
         //pessoa.setSenha(passwordEncoder().encode(pessoa.getSenha()));
