@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<iframe src="navbar.html" frameborder="0" scrolling="no" width="100%" height="50"></iframe>
+	<iframe src="navbar.html" frameborder="0" scrolling="no" width="100%" height="50"></iframe>
 	<div id="content">
 		<div class="ui medium_table_custom grey_body_wrapper">
 			<div class="ui panel black_panel">
@@ -30,7 +30,6 @@
 							<th>Email</th>
 							<th>Telefone</th>
 							<th>Documento</th>
-							<th>Papel</th>
 							<th>Tipo</th>
 							<th>Ações</th>
 						</tr>
@@ -41,10 +40,26 @@
 				</table>
 
 			</div>
+
+			<div class="ui inverted modal" id="mdl_cadastro_usuario">
+				<i class="close icon"></i>
+				<div class="ui dividing header">
+					Cadastro de Usuário
+				</div>
+				<div class="content">
+					<form class="ui form" id="form_usuario"></form>
+				</div>
+				<div class="actions">
+					<div class="ui negative button">Cancelar</div>
+					<div class="ui primary aprove button" onclick="editar_usuario()">Salvar</div>
+				</div>
+			</div>
+
+
 			<div class="ui basic modal" id="delete_confirmation">
 				<div class="ui icon header">
 					<i class="trash alternate icon red"></i>
-						Remover Usuário
+					Remover Usuário
 				</div>
 				<div class="content" style="text-align:center;">
 					<h2>Você tem certeza que deseja remover o Usuário?</h2>
@@ -58,7 +73,7 @@
 						<i class="checkmark icon"></i>
 						Sim
 					</div>
-			  </div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -66,7 +81,12 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="semantic/semantic.min.js"></script>
-<script src="js/cadastro.js"></script>
+<script src="js/cadastro_usuarios.js"></script>
 <script src="js/usuarios.js"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+	  gerar_cadastro();
+	});
+  </script>
 
 </html>

@@ -1,18 +1,3 @@
-function get_url(){
-    var url = window.location.href;
-    var parts = url.split('/');
-    var directoryPath = "";
-
-    for (var i = 0; i < parts.length; i++) {
-        if (parts[i] === "imoveis") {
-            directoryPath = parts.slice(0, i+1).join('/');
-        }
-    }
-    return directoryPath;
-
-}
-
-
 function abrir_cadastro() {
   
     // show first immediately
@@ -27,6 +12,8 @@ function gerar_cadastro(){
    
     var div = document.createElement('div');
     var div_content = '';
+    // DEIXAR ESTES DISPLAY AQUI                                                vvvvv
+    div_content += '<input type="number" value="" name="idPessoa" id="idPessoa" style="display:none;">'
     div_content += '<div class="ui inverted form">';
     div_content += '<div class="two fields">';
     div_content += '<div class="ten wide field">';
@@ -103,7 +90,7 @@ function gerar_cadastro(){
 //     cadastro_juridica.append(div);
 // }
 
-function cadastro_usuario() {
+function cadastrar_usuario() {
     const formulario = document.getElementById("form_usuario");
     const url = 'http://localhost:8080/pessoas/criar';
     const dados_form = new FormData(formulario);

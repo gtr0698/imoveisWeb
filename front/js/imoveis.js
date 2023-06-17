@@ -3,7 +3,7 @@ $(document).ready(function () {
 });
 function create_cards() {
     var xhr = new XMLHttpRequest();
-    const url = 'http://localhost:8080/cadastros/imoveis'
+    const url = 'http://localhost:8080/imoveis/listar'
     xhr.open('GET', url, true);
     var card_content = document.getElementById('cards_imoveis');
 

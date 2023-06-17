@@ -1,3 +1,5 @@
+var id_imovel = '';
+
 function salvar_imovel() {
     const formulario = document.getElementById("form_cadastro_imovel");
     const dados_form = new FormData(formulario);
