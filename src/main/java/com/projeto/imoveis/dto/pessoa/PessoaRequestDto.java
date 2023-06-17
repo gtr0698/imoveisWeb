@@ -5,10 +5,10 @@ import lombok.Getter;
 @Getter
 public class PessoaRequestDto {
 
-    private Long id;
+    private Long idPessoa;
 
     public PessoaRequestDto(Long id) {
-        this.id = id;
+        this.idPessoa = id;
     }
 
     public PessoaRequestDto() {
