@@ -42,13 +42,13 @@ function gerar_cadastro(){
     div_content += '<label for="telefone">Telefone</label>';
     div_content += '<input type="number" id="telefone" name="telefone">';
     div_content += '</div>';
-    // div_content += '<div class="two field">';
-    // div_content += '<label for="tipoPessoa">Tipo</label>';
-    // div_content += '<select id="tipoPessoa" name="tipoPessoa">';
-    // div_content += '<option value=""></option>';
-    // div_content += '<option value="PESSOA_FISICA">Pessoa Física</option>';
-    // div_content += '<option value="PESSOA_JURIDICA">Pessoa Jurídica</option></select>';
-    // div_content += '</div>';
+    div_content += '<div class="two field">';
+    div_content += '<label for="tipoPessoa">Tipo</label>';
+    div_content += '<select id="tipoPessoa" name="tipoPessoa">';
+    div_content += '<option value=""></option>';
+    div_content += '<option value="PESSOA_FISICA">Pessoa Física</option>';
+    div_content += '<option value="PESSOA_JURIDICA">Pessoa Jurídica</option></select>';
+    div_content += '</div>';
    
     div.setAttribute('class', 'ui inverted segment');
     div.innerHTML = div_content;
