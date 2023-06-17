@@ -18,7 +18,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Emily\",\r\n    \"email\": \"emily@teste.com\",\r\n    \"telefone\": \"45999999922\",\r\n    \"numeroDocumento\": \"12345678922\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"role\": [{\r\n        \"roleId\": 3\r\n    }],\r\n    \"senha\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Empresa Teste\",\r\n    \"email\": \"empresateste@teste.com\",\r\n    \"telefone\": \"45999999972\",\r\n    \"numeroDocumento\": \"12345678910111\",\r\n    \"role\": [{\r\n        \"roleId\": 3\r\n    }],\r\n    \"senha\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,19 +43,7 @@
 					"name": "LISTAR PESSOAS",
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "guilherme@admin.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -77,19 +65,7 @@
 					"name": "BUSCAR PESSOA",
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "guilherme@admin.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -112,19 +88,7 @@
 					"name": "ATUALIZAR PESSOA",
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "guilherme@admin.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "PUT",
 						"header": [],
@@ -138,7 +102,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/pessoas/atualizar/5",
+							"raw": "localhost:8080/pessoas/atualizar/3",
 							"host": [
 								"localhost"
 							],
@@ -146,7 +110,7 @@
 							"path": [
 								"pessoas",
 								"atualizar",
-								"5"
+								"3"
 							]
 						}
 					},
@@ -156,24 +120,12 @@
 					"name": "DELETAR PESSOA",
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "guilherme@admin.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/pessoas/remover/9",
+							"raw": "localhost:8080/pessoas/remover/3",
 							"host": [
 								"localhost"
 							],
@@ -181,7 +133,53 @@
 							"path": [
 								"pessoas",
 								"remover",
-								"9"
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "66859370-ad4d-4b1a-b4e7-a4fee2fa8667",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"guilherme@admin.com\",\r\n    \"senha\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pessoas/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"login"
 							]
 						}
 					},
@@ -196,19 +194,7 @@
 					"name": "LISTAR IMOVEIS",
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "guilherme@admin.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -230,25 +216,13 @@
 					"name": "ADICIONAR IMOVEL",
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "guilherme@admin.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"matriculaImovel\": \"325968\",\r\n    \"proprietario\": {\r\n        \"id\": 5\r\n    },\r\n    \"tipoImovel\": \"URBANO\",\r\n    \"largura\": 35.5,\r\n    \"comprimento\": 20.2,\r\n    \"preco\": 500000\r\n}",
+							"raw": "{\r\n    \"matriculaImovel\": \"325853\",\r\n    \"proprietario\": {\r\n        \"idPessoa\": 2\r\n    },\r\n    \"tipoImovel\": \"URBANO\",\r\n    \"largura\": 30.5,\r\n    \"comprimento\": 80.2,\r\n    \"preco\": 2000000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -273,19 +247,7 @@
 					"name": "BUSCAR IMOVEIS",
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "guilherme@admin.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -326,7 +288,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"matriculaImovel\": \"325964\",\r\n    \"proprietario\": {\r\n        \"idPessoa\": 8\r\n    },\r\n    \"tipoImovel\": \"RURAL\",\r\n    \"largura\": 50.5,\r\n    \"comprimento\": 20.2,\r\n    \"preco\": 1000000\r\n}",
+							"raw": "{\r\n    \"matriculaImovel\": \"325964\",\r\n    \"proprietario\": {\r\n        \"idPessoa\": 1\r\n    },\r\n    \"tipoImovel\": \"RURAL\",\r\n    \"largura\": 50.5,\r\n    \"comprimento\": 20.2,\r\n    \"preco\": 1000000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -352,19 +314,7 @@
 					"name": "DELETAR IMOVEL",
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "guilherme@admin.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "DELETE",
 						"header": [],
@@ -392,19 +342,7 @@
 					"name": "LISTAR FUNCIONARIOS",
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "guilherme@admin.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -426,25 +364,13 @@
 					"name": "ADICIONAR FUNCIONARIO",
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "guilherme@admin.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Cristiano\",\r\n    \"email\": \"cristiano@teste.com\",\r\n    \"telefone\": \"45999999968\",\r\n    \"numeroDocumento\": \"12345678968\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"role\": [{\r\n        \"roleId\": 2\r\n    }],\r\n    \"senha\": \"123456\",\r\n    \"cargo\": \"Corretor\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Andre\",\r\n    \"email\": \"andre@teste.com\",\r\n    \"telefone\": \"45999999955\",\r\n    \"numeroDocumento\": \"12345678955\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"role\": [{\r\n        \"roleId\": 2\r\n    }],\r\n    \"senha\": \"123456\",\r\n    \"cargo\": \"Corretor\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -459,6 +385,154 @@
 							"port": "8080",
 							"path": [
 								"funcionarios",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR FUNCIONARIO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/funcionarios/buscar/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"buscar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ATUALIZAR FUNCIONARIO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Cristiano\",\r\n    \"email\": \"cristiano@teste.com\",\r\n    \"telefone\": \"45999998899\",\r\n    \"numeroDocumento\": \"12345678999\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"role\": [{\r\n        \"roleId\": 2\r\n    }],\r\n    \"senha\": \"123456\",\r\n    \"cargo\": \"Corretor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/funcionarios/atualizar/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"atualizar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETAR FUNCIONARIO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/funcionarios/remover/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"remover",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN FUNCIONARIOS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"cristiano@teste.com\",\r\n    \"senha\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/funcionarios/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AGENDAMENTOS",
+			"item": [
+				{
+					"name": "AGENDAR VISITA",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "carlos@teste.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dataAgendamento\": \"2023-07-05\",\r\n    \"pessoa\": [{\r\n        \"idPessoa\": 1\r\n    }],\r\n    \"funcionario\": [{\r\n        \"idFuncionario\": 1\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/agendamentos/criar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agendamentos",
 								"criar"
 							]
 						}
