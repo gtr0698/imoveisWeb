@@ -6,7 +6,7 @@ function verificar_login() {
    
     const xhr = new XMLHttpRequest();
 
-    xhr.open('GET', url, true);
+    xhr.open('POST', url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     for (const [k, v] of dados_form.entries()) {
@@ -20,7 +20,7 @@ function verificar_login() {
         }
     }
 
-    obj_form = JSON.stringify(obj_form);
-    console.log(obj_form)
-    xhr.send(obj_form);
+    const jsonBody = JSON.stringify(obj_form);
+    console.log(jsonBody)
+    xhr.send(jsonBody);
 }
