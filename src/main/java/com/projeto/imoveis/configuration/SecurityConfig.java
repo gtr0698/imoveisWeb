@@ -1,4 +1,4 @@
-package com.projeto.imoveis.configuration;
+/*package com.projeto.imoveis.configuration;
 
 import com.projeto.imoveis.services.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +16,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-    @Autowired
-    CustomUserDetailsService userDetailsService;
+//    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+//    @Autowired
+//    CustomUserDetailsService userDetailsService;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests()
                 .requestMatchers(HttpMethod.POST, "/pessoas/criar").permitAll()
+                .requestMatchers(HttpMethod.GET, "/pessoas/login").permitAll()
                 .requestMatchers(HttpMethod.GET, "/pessoas/listar").authenticated()
                 .requestMatchers(HttpMethod.GET, "/pessoas/buscar/**").authenticated()
                 .requestMatchers(HttpMethod.PUT, "/pessoas/atualizar/**").authenticated()
@@ -46,11 +47,10 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "/imoveis/remover/**").authenticated()
 
                 .requestMatchers(HttpMethod.GET, "/funcionarios/listar").authenticated()
-                .requestMatchers(HttpMethod.POST, "/funcionarios/criar").authenticated();
-                //.requestMatchers(HttpMethod.GET, "/funcionarios/buscar/**").authenticated()
-                //.requestMatchers(HttpMethod.PUT, "/funcionarios/atualizar/**").authenticated()
-                //.requestMatchers(HttpMethod.DELETE, "/funcionarios/remover/**").authenticated();
+                .requestMatchers(HttpMethod.POST, "/funcionarios/criar").authenticated()
+
+                .requestMatchers(HttpMethod.POST, "/agendamentos/criar").authenticated();
         return http.build();
     }
 
-}
+}*/

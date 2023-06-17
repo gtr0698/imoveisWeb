@@ -3,18 +3,18 @@ package com.projeto.imoveis.models;
 import com.projeto.imoveis.enums.TipoPessoa;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @Entity
-public class Pessoa implements UserDetails {
+public class Pessoa /*implements UserDetails */{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,10 +41,8 @@ public class Pessoa implements UserDetails {
 
     protected String senha;
 
-    protected String cargo;
-
     public Pessoa(String nome, String email, String telefone, String numeroDocumento, TipoPessoa tipoPessoa,
-                  List<Role> role, String senha, String cargo) {
+                  List<Role> role, String senha) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -52,7 +50,6 @@ public class Pessoa implements UserDetails {
         this.tipoPessoa = tipoPessoa;
         this.role = role;
         this.senha = senha;
-        this.cargo = cargo;
     }
 
     public Pessoa() {
@@ -60,17 +57,16 @@ public class Pessoa implements UserDetails {
     }
 
     public Pessoa atualizaPessoa(String nome, String email, String telefone, String numeroDocumento,
-                                 TipoPessoa tipoPessoa,String senha, String cargo) {
+                                 TipoPessoa tipoPessoa,String senha) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.numeroDocumento = numeroDocumento;
         this.tipoPessoa = tipoPessoa;
         this.senha = senha;
-        this.cargo = cargo;
         return this;
     }
-
+/*
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.role;
@@ -104,5 +100,5 @@ public class Pessoa implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
+    }*/
 }

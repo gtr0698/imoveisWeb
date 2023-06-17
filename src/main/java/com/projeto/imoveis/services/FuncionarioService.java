@@ -1,11 +1,16 @@
 package com.projeto.imoveis.services;
 
+import com.projeto.imoveis.dto.Login;
+import com.projeto.imoveis.dto.funcionario.CreateFuncionarioDto;
+import com.projeto.imoveis.dto.funcionario.UpdateFuncionarioDto;
 import com.projeto.imoveis.dto.pessoa.CreatePessoaDto;
 import com.projeto.imoveis.exception.RegraException;
+import com.projeto.imoveis.models.Funcionario;
 import com.projeto.imoveis.models.Pessoa;
+import com.projeto.imoveis.repositories.FuncionarioRepository;
 import com.projeto.imoveis.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,58 +22,61 @@ public class FuncionarioService {
     @Autowired
     PessoaRepository pessoaRepository;
 
-    private BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
+    @Autowired
+    FuncionarioRepository funcionarioRepository;
+
+//    private BCryptPasswordEncoder passwordEncoder(){
+//        return new BCryptPasswordEncoder();
+//    }
+
+
+    public List<Funcionario> listarTodosFunc() {
+        return funcionarioRepository.findAll();
     }
 
 
-    public List<Pessoa> listarTodosFunc() {
-        return pessoaRepository.findAllByCargo();
+    public Optional<Funcionario> localizarFunc(Long funcionarioId) {
+        return funcionarioRepository.findById(funcionarioId);
     }
 
-    /*
-    public Optional<Pessoa> localizarFunc(Long funcionarioId) {
-        return pessoaRepository.findById(funcionarioId);
-    }
-    */
 
-    public Pessoa salvarFunc(CreatePessoaDto funcionario) {
+    public Funcionario salvarFunc(CreateFuncionarioDto funcionario) {
 
-        Optional<Pessoa> pessoaExistente = pessoaRepository.findByEmail(funcionario.getEmail());
+        Funcionario funcionarioExistente = funcionarioRepository.findByEmail(funcionario.getEmail());
 
-        if(pessoaExistente.isPresent()){
+        if(funcionarioExistente != null){
             throw new RegraException("Já existe um registro com esse email cadastrado.");
         }
 
-        funcionario.setSenha(passwordEncoder().encode(funcionario.getSenha()));
+        //funcionario.setSenha(passwordEncoder().encode(funcionario.getSenha()));
 
-        Pessoa novoFuncionario = funcionario.convertToModel();
+        Funcionario novoFuncionario = funcionario.convertToModel();
 
-        return pessoaRepository.save(novoFuncionario);
+        return funcionarioRepository.save(novoFuncionario);
     }
 
-    /*
-    public Pessoa atualizarFunc(Long funcionarioId, UpdatePessoaDto funcionario) {
-        Pessoa func = verificaExistencia(funcionarioId);
 
-        funcionario.setSenha(passwordEncoder().encode(funcionario.getSenha()));
+    public Funcionario atualizarFunc(Long funcionarioId, UpdateFuncionarioDto funcionario) {
+        Funcionario func = verificaExistencia(funcionarioId);
 
-        Pessoa funcAtualizado = func.atualizaPessoa(funcionario.getNome(), funcionario.getEmail(),
+        //funcionario.setSenha(passwordEncoder().encode(funcionario.getSenha()));
+
+        Funcionario funcAtualizado = func.atualizaFuncionario(funcionario.getNome(), funcionario.getEmail(),
                 funcionario.getTelefone(), funcionario.getNumeroDocumento(), funcionario.getTipoPessoa(),
                 funcionario.getSenha(), funcionario.getCargo());
 
-        return pessoaRepository.save(funcAtualizado);
+        return funcionarioRepository.save(funcAtualizado);
     }
 
     public void excluirFunc(Long funcionarioId) {
 
         verificaExistencia(funcionarioId);
 
-        pessoaRepository.deleteById(funcionarioId);
+        funcionarioRepository.deleteById(funcionarioId);
     }
 
-    public Pessoa verificaExistencia(Long funcionarioId){
-        Optional<Pessoa> funcionario = pessoaRepository.findById(funcionarioId);
+    public Funcionario verificaExistencia(Long funcionarioId){
+        Optional<Funcionario> funcionario = funcionarioRepository.findById(funcionarioId);
 
         if(funcionario.isEmpty()){
 
@@ -77,5 +85,13 @@ public class FuncionarioService {
 
         return funcionario.get();
     }
-    */
+
+    public Funcionario localizarLogin(Login login) {
+
+        Funcionario retornaFuncionario = funcionarioRepository.findByEmail(login.getEmail());
+
+        retornaFuncionario.getSenha().compareTo(login.getSenha());
+
+        return retornaFuncionario;
+    }
 }

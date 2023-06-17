@@ -5,13 +5,11 @@ import com.projeto.imoveis.models.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 public class UpdatePessoaDto {
 
     @NotBlank
@@ -38,7 +36,6 @@ public class UpdatePessoaDto {
     @Size(min = 6, max = 15)
     private String senha;
 
-    private String cargo;
 
     public UpdatePessoaDto() {
         super();

@@ -1,4 +1,4 @@
-package com.projeto.imoveis.services;
+/*package com.projeto.imoveis.services;
 
 import com.projeto.imoveis.models.Pessoa;
 import com.projeto.imoveis.repositories.PessoaRepository;
@@ -23,9 +23,16 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        Pessoa pessoaModel = pessoaRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("Email não localizado: " + email));
+        /*Pessoa pessoaModel = pessoaRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Email não localizado: " + email));*/
+
+/*        Pessoa pessoaModel = pessoaRepository.findByEmail(email);
+
+        if (pessoaModel == null){
+            new UsernameNotFoundException("Email não localizado: " + email);
+        }
+
         return new User(pessoaModel.getUsername(), pessoaModel.getPassword(), true, true,
                 true, true, pessoaModel.getAuthorities());
     }
-}
+}*/

@@ -1,7 +1,7 @@
-package com.projeto.imoveis.dto.pessoa;
+package com.projeto.imoveis.dto.funcionario;
 
 import com.projeto.imoveis.enums.TipoPessoa;
-import com.projeto.imoveis.models.Pessoa;
+import com.projeto.imoveis.models.Funcionario;
 import com.projeto.imoveis.models.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -11,7 +11,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class CreatePessoaDto {
+public class CreateFuncionarioDto {
 
     @NotBlank
     @Size(min = 3, max = 50)
@@ -37,8 +37,11 @@ public class CreatePessoaDto {
     @Size(min = 6, max = 15)
     private String senha;
 
-    public CreatePessoaDto(String nome, String email, String telefone, String numeroDocumento, TipoPessoa tipoPessoa,
-                           List<Role> role, String senha) {
+    @NotBlank
+    private String cargo;
+
+    public CreateFuncionarioDto(String nome, String email, String telefone, String numeroDocumento,
+                                TipoPessoa tipoPessoa, List<Role> role, String senha, String cargo) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -46,9 +49,10 @@ public class CreatePessoaDto {
         this.tipoPessoa = tipoPessoa;
         this.role = role;
         this.senha = senha;
+        this.cargo = cargo;
     }
 
-    public Pessoa convertToModel(){
-        return new Pessoa(nome, email, telefone, numeroDocumento, tipoPessoa, role,senha);
+    public Funcionario convertToModel(){
+        return new Funcionario(nome, email, telefone, numeroDocumento, tipoPessoa, role,senha, cargo);
     }
 }
