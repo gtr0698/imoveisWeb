@@ -14,7 +14,7 @@ function create_cards() {
         if (this.readyState == 4 && this.status == 200) {
             var res = this.responseText;
             var data = JSON.parse(res);
-            console.log(data)
+
             for (const [k, v] of Object.entries(data)) {
 
                 var div = document.createElement('div');
@@ -38,7 +38,7 @@ function create_cards() {
                 div_content += '<div class="extra content">';
                 div_content += '<div class="ui green button" onclick="abrir_modal()">Agendar</div>';
                 div_content += '</div>';
-                
+
                 div.innerHTML += div_content;
                 div.setAttribute('class', 'ui inverted card');
                 card_content.appendChild(div);
@@ -49,9 +49,9 @@ function create_cards() {
     }
 
     xhr.send();
-};
+}
 
-function carregar_funcionarios(){
+function carregar_funcionarios() {
     var xhr = new XMLHttpRequest();
     const url = 'http://localhost:8080/funcionarios/listar';
     xhr.open('GET', url, true);
@@ -62,58 +62,54 @@ function carregar_funcionarios(){
             var res = this.responseText;
             var data = JSON.parse(res);
             console.log(data)
-            for (const [k, v] of Object.entries(data)) {
+            for (let item in data) {
                 var div = document.createElement('option');
-                if (k == 'nome'){
-                    div.innerHTML += div_content;
-                }
-                if (k == 'id'){
-                    div.setAttribute('id', v);
-                }
-                div.setAttribute('class', 'ui inverted card');
+                div.innerHTML +=  data[item]['nome'];;
+                div.setAttribute('value',  data[item]['nome']);
                 funcionarios.appendChild(div);
-
-
             }
         }
     }
 
     xhr.send();
 
+
 }
 
-function modal_agendar(){
+function modal_agendar() {
     const agendamento = document.getElementById('form_agendamento');
     agendamento.innerHTML = '';
-   
+
     var div = document.createElement('div');
     var div_content = '';
     // DEIXAR ESTES DISPLAY AQUI                                                vvvvv
     div_content += '<input type="number" value="" name="id" id="id" style="display:none;">'
     div_content += '<div class="six wide field">';
     div_content += '<label for="dataAgendamento">Data</label>';
-    div_content += '<input type="date" id="dataAgendamento" name="dataAgendamento">';
+    div_content += '<input type="date" placeholder="dd/mm/aaaa" id="dataAgendamento" name="dataAgendamento">';
+    div_content += '</div>';
+    div_content += '<div class="six wide field">';
+    div_content += '<label for="numeroDocumento">Documento</label>';
+    div_content += '<input type="number" placeholder="CPF/CNPJ" id="numeroDocumento" name="numeroDocumento">';
     div_content += '</div>';
     div_content += '<div class="six wide field">';
     div_content += '<label for="funcionario">Corretor</label>';
-    div_content += '<select id="funcionario" name="funcionario" id="funcionario_dropdown">';
+    div_content += '<select name="funcionario" id="funcionario_dropdown">';
     div_content += '<option value=""></option>';
-    // div_content += '<option value="PESSOA_FISICA">Pessoa Física</option>';
-    // div_content += '<option value="PESSOA_JURIDICA">Pessoa Jurídica</option>';
     div_content += '</select></div></div>';
 
-   
+
     div.setAttribute('class', 'ui inverted segment');
     div.innerHTML = div_content;
     agendamento.append(div);
-    
+
 }
 
-function abrir_modal(){
+function abrir_modal() {
     $('#mdl_agendamento').modal('show');
 }
 
-function agendar(){
+function agendar() {
     const formulario = document.getElementById("form_agendamento");
     const dados_form = new FormData(formulario);
     var obj_form = {};
@@ -135,5 +131,5 @@ function agendar(){
     }
     obj_form = JSON.stringify(obj_form);
     // send(obj_form);
-   
+
 }
