@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="style/default.css">
     <link rel="stylesheet" type="text/css" href="style/cadastro_imoveis.css">
-    <title>Cadstro de Imóveis</title>
+    <title>Cadastro de Imóveis</title>
 </head>
 
 <body>
@@ -62,18 +62,14 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="one fields botao">
-                            <div class="one wide field" id="btn_salvar">
-                                <div class="ui green button" onclick="salvar_imovel()">Salvar</div>
-                            </div>
-                        </div>
-
-
                     </div>
                 </form>
                 <hr>
-                <div class="ui primary button">Editar</div>
-                <div class="ui negative button" onclick="modal_remover()">Remover</div>
+                <div class="botoes">
+                    <div class="ui primary button">Editar</div>
+                    <div class="ui negative button" onclick="modal_remover()">Remover</div>
+                    <div class="ui green button botao" onclick="salvar_imovel()">Salvar</div>
+                </div>
                 <!-- Modal de Busca para Edição -->
                 <!-- Modal de Deleção -->
                 <div class="ui inverted tiny modal" id="mdl_deletar_imovel">

@@ -5,8 +5,13 @@ h1{
     color: white;
 }
 
+.ui.form {
+    width: 100%;
+}
+
 .ui.form .fields {
     width: 100%;
+    justify-content: start;
 }
 
 .ui.form .two.wide.field {
