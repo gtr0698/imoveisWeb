@@ -19,7 +19,6 @@ public class AgendamentoService {
     public Agendamento salvar(CreateAgendamentoDto agendamento) {
 
         LocalDate dataAtual = LocalDate.now();
-
         LocalDate dataAgendamento = agendamento.getDataAgendamento();
 
         if(dataAgendamento.isBefore(dataAtual)){

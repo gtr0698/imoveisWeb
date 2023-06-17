@@ -73,9 +73,18 @@ public class PessoaController {
 
         return ResponseEntity.status(HttpStatus.OK).body("Removido com sucesso!");
     }
-
+/*
     //@PreAuthorize("permitAll()")
     @GetMapping("/login")
+    public ResponseEntity<Object> login(@RequestBody Login login){
+        Pessoa buscarPessoaNoLogin = pessoaService.localizarLogin(login);
+        if(buscarPessoaNoLogin == null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Acesso negado!");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(buscarPessoaNoLogin);
+    }*/
+
+    @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody Login login){
         Pessoa buscarPessoaNoLogin = pessoaService.localizarLogin(login);
         if(buscarPessoaNoLogin == null){

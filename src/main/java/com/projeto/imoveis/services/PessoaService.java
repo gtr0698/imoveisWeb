@@ -96,8 +96,14 @@ public class PessoaService {
 
         Pessoa retornaPessoa = pessoaRepository.findByEmail(login.getEmail());
 
-        retornaPessoa.getSenha().compareTo(login.getSenha());
+        if(retornaPessoa != null){
+            boolean senhasIguais = retornaPessoa.getSenha().compareTo(login.getSenha()) == 0;
 
-        return retornaPessoa;
+            if (senhasIguais) {
+                return retornaPessoa;
+            }
+        }
+
+        return null;
     }
 }
