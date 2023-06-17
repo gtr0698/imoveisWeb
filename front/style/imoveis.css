@@ -22,3 +22,7 @@
     flex-grow: 1;
     flex-basis: calc(33.33% - 16px);
 }
+
+.ui.green.button {
+    display: flex;
+}

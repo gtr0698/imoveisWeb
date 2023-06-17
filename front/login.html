@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <div class="box">
-            <form class="ui form">
+            <form class="ui form" id="form_login">
                 <div class="field">
                     <h1>
                         Login
@@ -24,31 +24,25 @@
                     <label>
                         Usuário
                     </label>
-                    <input type="text"
-                           name="usuario"
-                           placeholder="Usuário...">
+                    <input type="text" name="email" placeholder="Example@email.com">
                 </div>
                 <div class="field">
                     <label>
                         Senha
                     </label>
-                    <input type="password"
-                           name="senha"
-                           placeholder="Senha...">
+                    <input type="password" name="senha" placeholder="Senha">
                 </div>
                 <div class="field" style="text-align: center; display: flex; flex-direction: column;">
                     <a class="time"> Esquici minha senha </a>
-                    <a href="index.html">
-                        <button class="ui primary button"
-                                type="button"
-                                style="margin-top: 0.8rem; width: 100%">
-                            Login
-                        </button>
-                    </a>
+                    <!-- <a href="index.html"> -->
+                    <button class="ui primary button" type="button" style="margin-top: 0.8rem; width: 100%"
+                        onclick="verificar_login()">
+                        Login
+                    </button>
+                    <!-- </a> -->
 
 
-                    <a class="time"
-                       style="text-align: center; margin-top: 0.8rem;">
+                    <a class="time" style="text-align: center; margin-top: 0.8rem;">
                         Cadastrar
                     </a>
                 </div>
@@ -60,6 +54,7 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="semantic/semantic.min.js"></script>
-<script src="js/default.js"></script>
+
+<script src="js/login.js"></script>
 
 </html>
