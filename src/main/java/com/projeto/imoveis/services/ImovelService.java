@@ -33,8 +33,8 @@ public class ImovelService {
     }
 
     public Imovel salvarImovel(CreateImovelDto imovel) {
-        Pessoa proprietario = pessoaRepository.findById(imovel.getProprietario().getId()).orElseThrow(() ->
-                new RegraException("Proprietario não encontrado com o id = " + imovel.getProprietario().getId(), "Proprietario"));
+        Pessoa proprietario = pessoaRepository.findById(imovel.getProprietario().getIdPessoa()).orElseThrow(() ->
+                new RegraException("Proprietario não encontrado com o id = " + imovel.getProprietario().getIdPessoa(), "Proprietario"));
 
         Imovel novoImovel = imovel.convertToModel(proprietario);
 
