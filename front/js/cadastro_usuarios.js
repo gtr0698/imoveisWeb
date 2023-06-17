@@ -104,23 +104,21 @@ function gerar_cadastro(){
 // }
 
 function cadastro_usuario() {
-    const formulario = document.getElementById("form_pessoa_fisica");
-    const url = 'http://localhost:8080/cadastros/pessoa-fisica';
+    const formulario = document.getElementById("form_usuario");
+    const url = 'http://localhost:8080/pessoas/criar';
     const dados_form = new FormData(formulario);
     var obj_form = {};
     const xhr = new XMLHttpRequest();
-    const nome = document.getElementById('nome');
     xhr.open('POST', url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     for (const [k, v] of dados_form.entries()) {
         obj_form[k] = v;
     }
-    obj_form['papel'] = "CLIENTE";
-    console.log(obj_form);
+
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            console.log("ok");
+            alert("Usuário Cadastrado!");
         }
     }
 
