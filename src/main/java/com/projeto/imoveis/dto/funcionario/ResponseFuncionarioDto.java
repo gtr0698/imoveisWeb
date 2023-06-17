@@ -24,4 +24,6 @@ public class ResponseFuncionarioDto {
         this.tipoPessoa = funcionario.getTipoPessoa();
         this.cargo = funcionario.getCargo();
     }
+
+    //
 }

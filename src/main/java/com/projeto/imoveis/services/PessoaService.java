@@ -92,8 +92,6 @@ public class PessoaService {
 
     public Pessoa localizarLogin(Login login){
 
-        //login.setSenha(passwordEncoder().encode(login.getSenha()));
-
         Pessoa retornaPessoa = pessoaRepository.findByEmail(login.getEmail());
 
         if(retornaPessoa != null){
@@ -103,7 +101,6 @@ public class PessoaService {
                 return retornaPessoa;
             }
         }
-
         return null;
     }
 }
