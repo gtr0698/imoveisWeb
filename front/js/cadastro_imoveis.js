@@ -7,7 +7,7 @@ function salvar_imovel() {
 
     for (const [k, v] of dados_form.entries()) {
         if (k == "proprietario") {
-            obj_form[k] = { 'id': v };
+            obj_form[k] = { 'idPessoa': v };
             continue;
         }
         if (k == 'id') {
@@ -53,7 +53,7 @@ function criar_imovel(obj_form) {
 function editar_imovel(obj_form) {
     const url = 'http://localhost:8080/imoveis/atualizar/' + id_imovel;
     const xhr = new XMLHttpRequest();
-
+ 
     xhr.open('PUT', url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -85,20 +85,18 @@ function buscar_imovel() {
     if (id_imovel.value.length < 1) {
         alert("O campo deve ter pelo menos 1 caractere!");
     } else {
-        xhr.open('DELETE', url, true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var response = JSON.parse(xhr.responseText)["content"];
+                var response = JSON.parse(xhr.responseText);
                 
                 document.getElementById('id').value = response['id'];
                 document.getElementById('matriculaImovel').value = response['matriculaImovel'];
-                document.getElementById('proprietario').value = response['proprietario']['id'];
+                document.getElementById('proprietario').value = response['proprietario']['idPessoa'];
                 document.getElementById('tipoImovel').value = response['tipoImovel'];
                 document.getElementById('largura').value = response['largura'];
                 document.getElementById('comprimento').value = response['comprimento'];
                 document.getElementById('preco').value = response['comprimento'];
+                $('#mdl_editar_imovel').modal('hide');
             }
         }
 
@@ -123,6 +121,7 @@ function deletar_imovel() {
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 alert("Imóvel Deletado");
+                $('#mdl_deletar_imovel').modal('hide');
             }
         }
 
