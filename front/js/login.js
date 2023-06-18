@@ -30,3 +30,4 @@ function verificar_login() {
     }
     xhr.send(JSON.stringify(obj_form));
 }
+

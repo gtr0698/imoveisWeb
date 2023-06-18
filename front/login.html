@@ -42,21 +42,32 @@
                             Login
                         </button>
                         <!-- </a> -->
-
-
-    <!--                    <a class="time" style="text-align: center; margin-top: 0.8rem;">-->
-    <!--                        Cadastrar-->
-    <!--                    </a>-->
+                        <a onclick="gerar_cadastro(); abrir_cadastro();" target="_parent" class="time" style="text-align: center; margin-top: 0.8rem;">
+                            Cadastrar
+                        </a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    <div class="ui inverted modal" id="mdl_cadastro_usuario">
+        <i class="close icon"></i>
+        <div class="ui dividing header">|
+            Cadastro de Usuário
+        </div>
+        <div class="content">
+            <form class="ui form" id="form_usuario"></form>
+        </div>
+        <div class="actions">
+            <div class="ui negative button">Cancelar</div>
+            <div class="ui green button" onclick="cadastrar_usuario()">Salvar</div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/semantic.min.js"></script>
+
+    <script src="js/login.js"></script>
+    <script src="js/cadastro_usuarios.js"></script>
 </body>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-<script src="semantic/semantic.min.js"></script>
-
-<script src="js/login.js"></script>
-
 </html>
