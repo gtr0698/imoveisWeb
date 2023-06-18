@@ -15,14 +15,19 @@
     margin: 0;
     flex-wrap: wrap;
     display: flex;
-    flex-direction: row;
 }
 
 .cards .card {
-    flex-grow: 1;
     flex-basis: calc(33.33% - 16px);
+    box-sizing: border-box;
 }
 
 .ui.green.button {
     display: flex;
+}
+
+.ui.inverted.segment {
+    border: none;
+    box-shadow: none;
+    display: contents;
 }
