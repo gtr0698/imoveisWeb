@@ -38,7 +38,7 @@ function create_cards() {
                 div_content += '<div class="extra content">';
                 div_content += '<div class="ui green button" onclick="abrir_modal()">Agendar</div>';
                 div_content += '</div>';
-                
+
                 div.innerHTML += div_content;
                 div.setAttribute('class', 'ui inverted card');
                 card_content.appendChild(div);
@@ -51,7 +51,7 @@ function create_cards() {
     xhr.send();
 };
 
-function carregar_funcionarios(){
+function carregar_funcionarios() {
     var xhr = new XMLHttpRequest();
     const url = 'http://localhost:8080/funcionarios/listar';
     xhr.open('GET', url, true);
@@ -61,19 +61,12 @@ function carregar_funcionarios(){
         if (this.readyState == 4 && this.status == 200) {
             var res = this.responseText;
             var data = JSON.parse(res);
-            console.log(data)
-            for (const [k, v] of Object.entries(data)) {
+
+            for (let item in data) {
                 var div = document.createElement('option');
-                if (k == 'nome'){
-                    div.innerHTML += div_content;
-                }
-                if (k == 'id'){
-                    div.setAttribute('id', v);
-                }
-                div.setAttribute('class', 'ui inverted card');
+                div.innerHTML = data[item]['nome'];
+                div.setAttribute('id', data[item]['id']);
                 funcionarios.appendChild(div);
-
-
             }
         }
     }
@@ -82,10 +75,10 @@ function carregar_funcionarios(){
 
 }
 
-function modal_agendar(){
+function modal_agendar() {
     const agendamento = document.getElementById('form_agendamento');
     agendamento.innerHTML = '';
-   
+
     var div = document.createElement('div');
     var div_content = '';
     // DEIXAR ESTES DISPLAY AQUI                                                vvvvv
@@ -98,42 +91,38 @@ function modal_agendar(){
     div_content += '<label for="funcionario">Corretor</label>';
     div_content += '<select name="funcionario" id="funcionario_dropdown">';
     div_content += '<option value=""></option>';
-    // div_content += '<option value="PESSOA_FISICA">Pessoa Física</option>';
-    // div_content += '<option value="PESSOA_JURIDICA">Pessoa Jurídica</option>';
-    div_content += '</select></div></div>';
+   div_content += '</select></div></div>';
 
-   
+
     div.setAttribute('class', 'ui inverted segment');
     div.innerHTML = div_content;
     agendamento.append(div);
-    
+
 }
 
-function abrir_modal(){
+function abrir_modal() {
     $('#mdl_agendamento').modal('show');
 }
 
-function agendar(){
-    const formulario = document.getElementById("form_agendamento");
-    const dados_form = new FormData(formulario);
+function agendar() {
+    const dataAgendamento = document.getElementById("dataAgendamento");
+
     var obj_form = {};
-    var url = "https://localhost:8080/agendamentos/criar"
+    var url = "http://localhost:8080/agendamentos/criar"
     const xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
-    for (const [k, v] of dados_form.entries()) {
-        console.log(k + " >>> " + v);
-        // if (k == "proprietario") {
-        //     obj_form[k] = { 'idPessoa': v };
-        //     continue;
-        // }
-        // if (k == 'id') {
-        //     id_imovel = v;
-        // }
-        // obj_form[k] = v;
-    }
+    const selectElement = document.getElementById('funcionario_dropdown');
+    const selectedIndex = selectElement.selectedIndex;
+    const selectedOption = selectElement.options[selectedIndex].id;
+
+    obj_form['pessoa'] = [{'idPessoa': localStorage.getItem('id_pessoa')}]
+    obj_form['funcionario'] = [{'idFuncionario': selectedOption}]
+    obj_form['dataAgendamento'] = dataAgendamento.value;
+
     obj_form = JSON.stringify(obj_form);
-    // send(obj_form);
-   
+    console.log(obj_form)
+    xhr.send(obj_form);
+
 }
