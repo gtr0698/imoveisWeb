@@ -61,11 +61,19 @@ function carregar_funcionarios() {
         if (this.readyState == 4 && this.status == 200) {
             var res = this.responseText;
             var data = JSON.parse(res);
+<<<<<<< HEAD
             console.log(data)
             for (let item in data) {
                 var div = document.createElement('option');
                 div.innerHTML +=  data[item]['nome'];;
                 div.setAttribute('value',  data[item]['nome']);
+=======
+
+            for (let item in data) {
+                var div = document.createElement('option');
+                div.innerHTML = data[item]['nome'];
+                div.setAttribute('id', data[item]['id']);
+>>>>>>> master
                 funcionarios.appendChild(div);
             }
         }
@@ -96,9 +104,15 @@ function modal_agendar() {
     div_content += '<label for="funcionario">Corretor</label>';
     div_content += '<select name="funcionario" id="funcionario_dropdown">';
     div_content += '<option value=""></option>';
+<<<<<<< HEAD
     div_content += '</select></div></div>';
 
 
+=======
+   div_content += '</select></div></div>';
+
+
+>>>>>>> master
     div.setAttribute('class', 'ui inverted segment');
     div.innerHTML = div_content;
     agendamento.append(div);
@@ -110,26 +124,33 @@ function abrir_modal() {
 }
 
 function agendar() {
+<<<<<<< HEAD
     const formulario = document.getElementById("form_agendamento");
     const dados_form = new FormData(formulario);
+=======
+    const dataAgendamento = document.getElementById("dataAgendamento");
+
+>>>>>>> master
     var obj_form = {};
-    var url = "https://localhost:8080/agendamentos/criar"
+    var url = "http://localhost:8080/agendamentos/criar"
     const xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
-    for (const [k, v] of dados_form.entries()) {
-        console.log(k + " >>> " + v);
-        // if (k == "proprietario") {
-        //     obj_form[k] = { 'idPessoa': v };
-        //     continue;
-        // }
-        // if (k == 'id') {
-        //     id_imovel = v;
-        // }
-        // obj_form[k] = v;
-    }
+    const selectElement = document.getElementById('funcionario_dropdown');
+    const selectedIndex = selectElement.selectedIndex;
+    const selectedOption = selectElement.options[selectedIndex].id;
+
+    obj_form['pessoa'] = [{'idPessoa': localStorage.getItem('id_pessoa')}]
+    obj_form['funcionario'] = [{'idFuncionario': selectedOption}]
+    obj_form['dataAgendamento'] = dataAgendamento.value;
+
     obj_form = JSON.stringify(obj_form);
+<<<<<<< HEAD
     // send(obj_form);
+=======
+    console.log(obj_form)
+    xhr.send(obj_form);
+>>>>>>> master
 
 }
